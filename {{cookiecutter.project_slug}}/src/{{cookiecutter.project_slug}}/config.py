@@ -10,7 +10,7 @@ except ImportError:
 
 
 SRC = Path(__file__).resolve()
-BLD = SRC.joinpath("..", "bld")
+BLD = SRC.joinpath("..", "..", "bld")
 
 
 __all__ = ["__version__", "BLD", "SRC"]
