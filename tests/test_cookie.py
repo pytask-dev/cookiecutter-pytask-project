@@ -49,7 +49,8 @@ def test_remove_github_actions(cookies):
 
 @pytest.mark.end_to_end
 @pytest.mark.skipif(
-    "CI" not in os.environ, reason="Conda environment is only created on CI service."
+    os.environ.get("CI", "false") == "true",
+    reason="Conda environment is only created on CI service.",
 )
 def test_check_conda_environment_creation(cookies):
     result = cookies.bake(
