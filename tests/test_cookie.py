@@ -41,7 +41,7 @@ def test_remove_github_actions(cookies):
     assert result.exception is None
 
     assert ga_config.exists()
-    assert "azure" not in readme
+    assert "github/workflow/status" not in readme
 
 
 @pytest.mark.skipif(
@@ -50,8 +50,8 @@ def test_remove_github_actions(cookies):
 def test_check_conda_environment_creation(cookies):
     result = cookies.bake(
         extra_context={
-            "create_conda_environment_at_finish": "yes",
             "conda_environment_name": "test",
+            "create_conda_environment_at_finish": "yes",
         }
     )
 

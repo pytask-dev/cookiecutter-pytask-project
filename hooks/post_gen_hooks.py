@@ -1,3 +1,4 @@
+"""This module contains hooks which are executed after the template is rendered."""
 import shutil
 from pathlib import Path
 
@@ -5,6 +6,7 @@ PROJECT_DIRECTORY = Path.cwd()
 
 
 def remove_file(*filepath):
+    """Remove a file."""
     try:
         PROJECT_DIRECTORY.joinpath(*filepath).unlink()
     except FileNotFoundError:
@@ -12,6 +14,7 @@ def remove_file(*filepath):
 
 
 def remove_directory(*filepath):
+    """Remove a directory."""
     try:
         path = PROJECT_DIRECTORY.joinpath(*filepath)
         shutil.rmtree(path)
@@ -20,6 +23,7 @@ def remove_directory(*filepath):
 
 
 def main():
+    """Apply post generation hooks."""
     if "{{ cookiecutter.create_changes_file }}" == "no":
         remove_file("CHANGES.rst")
 

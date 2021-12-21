@@ -1,3 +1,4 @@
+"""This module contains the general configuration of the project."""
 from pathlib import Path
 
 

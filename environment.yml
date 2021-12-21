@@ -16,6 +16,7 @@ dependencies:
 
   # Misc
   - black
+  - mypy
   - pre-commit
   - pytest
   - pytest-cookies

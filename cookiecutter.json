@@ -17,6 +17,7 @@
     "GNU General Public License v3", "Not open source"
   ],
   "conda_environment_name": "{{ cookiecutter.project_slug }}",
+  "create_conda_environment_at_finish": ["no", "yes"],
   "_copy_without_render": [
     ".github/workflows/main.yml"
   ]
