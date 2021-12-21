@@ -48,6 +48,18 @@ def test_remove_github_actions(cookies):
 
 
 @pytest.mark.end_to_end
+def test_remove_license(cookies):
+    result = cookies.bake(extra_context={"open_source_license": "Not open source"})
+
+    license_ = result.project_path.joinpath(".github", "workflows", "main.yml")
+
+    assert result.exit_code == 0
+    assert result.exception is None
+
+    assert license_.exists()
+
+
+@pytest.mark.end_to_end
 @pytest.mark.skipif(
     os.environ.get("CI", "false") == "true",
     reason="Conda environment is only created on CI service.",

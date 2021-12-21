@@ -27,6 +27,9 @@ def main():
     if "{{ cookiecutter.create_changes_file }}" == "no":
         remove_file("CHANGES.rst")
 
+    if "{{ cookiecutter.open_source_license }}" == "Not open source":
+        remove_file("LICENSE")
+
     if "{{ cookiecutter.add_tox }}" == "no":
         remove_directory(".github", "workflows")
         remove_file("tox.ini")

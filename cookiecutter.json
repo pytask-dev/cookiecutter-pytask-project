@@ -12,8 +12,8 @@
   "add_readthedocs": ["no", "yes"],
   "add_codecov": ["no", "yes"],
   "create_changes_file": ["yes", "no"],
-  "license": [
-    "MIT license", "BSD license", "ISC license", "Apache Software License 2.0",
+  "open_source_license": [
+    "MIT", "BSD", "ISC", "Apache Software License 2.0",
     "GNU General Public License v3", "Not open source"
   ],
   "conda_environment_name": "{{ cookiecutter.project_slug }}",
