@@ -34,27 +34,27 @@ jobs:
 
       # Unit, integration, and end-to-end tests.
 
-      - name: Run unit tests and doctests.
-        shell: bash -l {0}
-        run: tox -e pytest -- src tests -m "unit or (not integration and not end_to_end)" --cov=./ --cov-report=xml -n auto
+      # - name: Run unit tests and doctests.
+      #   shell: bash -l {0}
+      #   run: tox -e pytest -- {{cookiecutter.project_slug}} tests -m "unit or (not integration and not end_to_end)" --cov=./ --cov-report=xml -n auto
 
-      - name: Upload coverage report for unit tests and doctests.
-        if: runner.os == 'Linux' && matrix.python-version == '3.8'
-        shell: bash -l {0}
-        run: bash <(curl -s https://codecov.io/bash) -F unit -c
+      # - name: Upload coverage report for unit tests and doctests.
+      #   if: runner.os == 'Linux' && matrix.python-version == '3.8'
+      #   shell: bash -l {0}
+      #   run: bash <(curl -s https://codecov.io/bash) -F unit -c
 
-      - name: Run integration tests.
-        shell: bash -l {0}
-        run: tox -e pytest -- src tests -m integration --cov=./ --cov-report=xml -n auto
+      # - name: Run integration tests.
+      #   shell: bash -l {0}
+      #   run: tox -e pytest -- {{cookiecutter.project_slug}} tests -m integration --cov=./ --cov-report=xml -n auto
 
-      - name: Upload coverage reports of integration tests.
-        if: runner.os == 'Linux' && matrix.python-version == '3.8'
-        shell: bash -l {0}
-        run: bash <(curl -s https://codecov.io/bash) -F integration -c
+      # - name: Upload coverage reports of integration tests.
+      #   if: runner.os == 'Linux' && matrix.python-version == '3.8'
+      #   shell: bash -l {0}
+      #   run: bash <(curl -s https://codecov.io/bash) -F integration -c
 
       - name: Run end-to-end tests.
         shell: bash -l {0}
-        run: tox -e pytest -- src tests -m end_to_end --cov=./ --cov-report=xml -n auto
+        run: tox -e pytest -- {{cookiecutter.project_slug}} tests -m end_to_end --cov=./ --cov-report=xml -n auto
 
       - name: Upload coverage reports of end-to-end tests.
         if: runner.os == 'Linux' && matrix.python-version == '3.8'
