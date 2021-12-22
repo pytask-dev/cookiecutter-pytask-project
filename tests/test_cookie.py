@@ -30,7 +30,7 @@ def test_remove_readthedocs(cookies):
     assert result.exit_code == 0
     assert result.exception is None
 
-    assert rtd_config.exists()
+    assert not rtd_config.exists()
     assert "readthedocs" not in readme
 
 
@@ -44,7 +44,7 @@ def test_remove_github_actions(cookies):
     assert result.exit_code == 0
     assert result.exception is None
 
-    assert ga_config.exists()
+    assert not ga_config.exists()
     assert "github/workflow/status" not in readme
 
 
@@ -71,24 +71,24 @@ def test_remove_license(cookies):
     assert result.exit_code == 0
     assert result.exception is None
 
-    assert license_.exists()
+    assert not license_.exists()
 
 
 @pytest.mark.end_to_end
 def test_remove_changes(cookies):
-    result = cookies.bake(extra_context={"create_changes_file": "no"})
+    result = cookies.bake(extra_context={"create_changelog": "no"})
 
     changes = result.project_path.joinpath("CHANGES.rst")
 
     assert result.exit_code == 0
     assert result.exception is None
 
-    assert changes.exists()
+    assert not changes.exists()
 
 
 @pytest.mark.end_to_end
 @pytest.mark.skipif(
-    os.environ.get("CI", "false") == "true",
+    os.environ.get("CI", "false") == "false",
     reason="Conda environment is only created on CI service.",
 )
 def test_check_conda_environment_creation_and_run_all_checks(cookies):
@@ -100,10 +100,11 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
         }
     )
 
-    subprocess.run(
-        ("conda", "run", "-n", "__test__", "pre-commit" "run", "--all-files"),
-        cwd=result.project_path,
-    )
-
     assert result.exit_code == 0
     assert result.exception is None
+
+    subprocess.run(
+        ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
+        cwd=result.project_path,
+        check=True,
+    )
