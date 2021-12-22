@@ -51,9 +51,11 @@ def main():
         subprocess.run(
             ("git", "config", "--global", "init.defaultBranch", "main"), check=True
         )
-        subprocess.run(("git", "init"), check=True)
+        subprocess.run(("git", "init"), check=True, capture_output=True)
         subprocess.run(("git", "add", "."), check=True)
-        subprocess.run(("git", "commit", "-am", "Initial commit."), check=True)
+        subprocess.run(
+            ("git", "commit", "-am", "Initial commit."), check=True, capture_output=True
+        )
         subprocess.run(
             ("git", "config", "--global", "init.defaultBranch", old_branch_default),
             check=True,
