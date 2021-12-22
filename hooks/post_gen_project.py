@@ -52,9 +52,19 @@ def main():
             ("git", "config", "--global", "init.defaultBranch", "main"), check=True
         )
         subprocess.run(("git", "init"), check=True, capture_output=True)
+        subprocess.run(
+            ("git", "config", "user.name", "'{{ cookiecutter.github_username }}'"),
+            check=True,
+        )
+        subprocess.run(
+            ("git", "config", "user.email", "'{{ cookiecutter.github_email }}'"),
+            check=True,
+        )
         subprocess.run(("git", "add", "."), check=True)
         subprocess.run(
-            ("git", "commit", "-am", "Initial commit."), check=True, capture_output=True
+            ("git", "commit", "-m", "'Initial commit.'"),
+            check=True,
+            capture_output=True,
         )
         subprocess.run(
             ("git", "config", "--global", "init.defaultBranch", old_branch_default),

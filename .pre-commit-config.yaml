@@ -85,7 +85,6 @@ repos:
     rev: v2.1.0
     hooks:
     -   id: codespell
-        args: [-L hist,-L unparseable]
 -   repo: https://github.com/guilatrova/tryceratops
     rev: v1.0.0
     hooks:
