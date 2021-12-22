@@ -1,4 +1,5 @@
 import os
+import subprocess
 import sys
 
 import pytest
@@ -48,10 +49,24 @@ def test_remove_github_actions(cookies):
 
 
 @pytest.mark.end_to_end
+def test_remove_tox(cookies):
+    result = cookies.bake(extra_context={"add_tox": "no"})
+
+    ga_config = result.project_path.joinpath(".github", "workflows", "main.yml")
+    tox = result.project_path.joinpath("tox.ini")
+
+    assert result.exit_code == 0
+    assert result.exception is None
+
+    assert not ga_config.exists()
+    assert not tox.exists()
+
+
+@pytest.mark.end_to_end
 def test_remove_license(cookies):
     result = cookies.bake(extra_context={"open_source_license": "Not open source"})
 
-    license_ = result.project_path.joinpath(".github", "workflows", "main.yml")
+    license_ = result.project_path.joinpath("LICENSE")
 
     assert result.exit_code == 0
     assert result.exception is None
@@ -60,16 +75,34 @@ def test_remove_license(cookies):
 
 
 @pytest.mark.end_to_end
+def test_remove_changes(cookies):
+    result = cookies.bake(extra_context={"create_changes_file": "no"})
+
+    changes = result.project_path.joinpath("CHANGES.rst")
+
+    assert result.exit_code == 0
+    assert result.exception is None
+
+    assert changes.exists()
+
+
+@pytest.mark.end_to_end
 @pytest.mark.skipif(
     os.environ.get("CI", "false") == "true",
     reason="Conda environment is only created on CI service.",
 )
-def test_check_conda_environment_creation(cookies):
+def test_check_conda_environment_creation_and_run_all_checks(cookies):
+    """Test that the conda environment is created and pre-commit passes."""
     result = cookies.bake(
         extra_context={
-            "conda_environment_name": "test",
+            "conda_environment_name": "__test__",
             "create_conda_environment_at_finish": "yes",
         }
+    )
+
+    subprocess.run(
+        ("conda", "run", "-n", "__test__", "pre-commit" "run", "--all-files"),
+        cwd=result.project_path,
     )
 
     assert result.exit_code == 0

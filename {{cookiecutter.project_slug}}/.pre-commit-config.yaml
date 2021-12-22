@@ -8,7 +8,6 @@ repos:
     -   id: check-merge-conflict
     -   id: check-vcs-permalinks
     -   id: check-yaml
-        exclude: "{{cookiecutter.project_slug}}/environment.yml"
     -   id: debug-statements
     -   id: end-of-file-fixer
     -   id: fix-byte-order-marker

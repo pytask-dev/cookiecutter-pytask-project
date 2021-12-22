@@ -10,7 +10,7 @@ except ImportError:
     __version__ = "unknown"
 
 
-SRC = Path(__file__).resolve()
+SRC = Path(__file__).parent.resolve()
 BLD = SRC.joinpath("..", "..", "bld")
 
 

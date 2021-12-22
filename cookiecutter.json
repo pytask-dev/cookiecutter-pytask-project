@@ -1,6 +1,6 @@
 {
   "author": "Arianna W. Rosenbluth",
-  "email": "{{ cookiecutter.author.lower().replace(' ', '') }}@example.com",
+  "email": "{{ cookiecutter.author.lower().replace(' ', '') }}@mail.edu",
   "project_name": "Reproducible Research Template",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_description": "A project for ...",
@@ -9,8 +9,8 @@
   "python_version": "3.8",
   "add_tox": ["yes", "no"],
   "add_github_actions": ["yes", "no"],
-  "add_readthedocs": ["no", "yes"],
-  "add_codecov": ["no", "yes"],
+  "add_readthedocs": ["yes", "no"],
+  "add_codecov": ["yes", "no"],
   "create_changes_file": ["yes", "no"],
   "open_source_license": [
     "MIT", "BSD", "ISC", "Apache Software License 2.0",

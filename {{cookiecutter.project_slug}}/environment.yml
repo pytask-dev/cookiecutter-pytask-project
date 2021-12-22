@@ -1,4 +1,4 @@
-name: cp
+name: {{ cookiecutter.conda_environment_name }}
 
 channels:
   - conda-forge
@@ -29,3 +29,6 @@ dependencies:
   - sphinx-click
   - sphinx-copybutton
   - sphinx-panels
+
+  - pip:
+    - -e .
