@@ -17,6 +17,7 @@
     "MIT", "BSD", "ISC", "Apache Software License 2.0",
     "GNU General Public License v3", "Not open source"
   ],
+  "make_initial_commit": ["no", "yes"],
   "conda_environment_name": "{{ cookiecutter.project_slug }}",
   "create_conda_environment_at_finish": ["no", "yes"],
   "_copy_without_render": [
