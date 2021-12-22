@@ -17,3 +17,27 @@
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/ambv/black
+
+
+Usage
+-----
+
+To get started, create the environment with
+
+.. code-block:: console
+
+    $ conda/mamba env create
+
+To build the project, type
+
+.. code-block:: console
+
+    $ pytask
+
+
+Credits
+-------
+
+This project was created with `cookiecutter <https://github.com/audreyr/cookiecutter>`_
+and the `cookiecutter-pytask <https://github.com/pytask-dev/cookiecutter-pytask>`_
+template.
