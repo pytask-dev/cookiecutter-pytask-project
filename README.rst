@@ -42,3 +42,15 @@ Then, set up the template with
 .. code-block:: console
 
     $ cookiecutter https://github.com/pytask-dev/cookiecutter-pytask
+
+
+FAQ
+---
+
+Q: Why are the source files nested in ``src/<project_slug>``?
+
+A: This is called the src layout and the advantages are discussed in this `article by
+Hynek Schlawack <https://hynek.me/articles/testing-packaging/>`_.
+
+Although the article discusses the src layout in terms of Python packages, it is also
+beneficial to structure a project the same way.
