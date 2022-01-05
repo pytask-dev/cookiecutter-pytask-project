@@ -10,6 +10,9 @@ dependencies:
   - setuptools_scm
   - toml
 
+  # Reproducibility
+  - conda-lock
+
   # Package dependencies
   - pytask
 
