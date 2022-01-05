@@ -83,7 +83,20 @@ def main():
                 "executable was found."
             )
         else:
-            subprocess.run(("conda", "env", "create"), check=True)
+            subprocess.run((conda_exe, "env", "create"), check=True)
+
+            # Run pre-commit.
+            subprocess.run(
+                (
+                    conda_exe,
+                    "run",
+                    "-n",
+                    "{{ cookiecutter.conda_environment_name }}",
+                    "pre-commit",
+                    "run",
+                    "-a",
+                )
+            )
 
 
 if __name__ == "__main__":
