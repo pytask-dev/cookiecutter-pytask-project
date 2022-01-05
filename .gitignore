@@ -69,7 +69,7 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+docs/build/
 
 # PyBuilder
 target/
@@ -127,3 +127,26 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Files
+.coverage
+coverage.*
+
+# Folders
+.idea
+.ipynb_checkpoints
+.tox
+.vscode
+_build
+__pycache__
+_generated
+
+*.egg-info
+.eggs
+
+.pytask.sqlite3
+
+build
+dist
+
+version.py
