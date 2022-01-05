@@ -4,17 +4,16 @@ This file only contains a selection of the most common options. For a full list 
 documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 """
-import datetime as dt
+from importlib.metadata import version
 
 # -- Project information -----------------------------------------------------
 
 project = "cookiecutter-pytask"
-year = dt.datetime.now().year
 author = "Tobias Raabe"
-copyright = f"2021-{year}, {author}"  # noqa: A001
+copyright = f"2021, {author}"  # noqa: A001
 
-# The full version, including alpha/beta/rc tags
-release = "1.0.0"
+# The version, including alpha/beta/rc tags, but not commit hash and datestamps
+release = version("cookiecutter-pytask")
 # The short X.Y version.
 version = ".".join(release.split(".")[:2])
 

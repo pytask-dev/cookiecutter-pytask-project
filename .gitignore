@@ -148,3 +148,5 @@ _generated
 
 build
 dist
+
+version.py

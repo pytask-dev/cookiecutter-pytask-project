@@ -97,11 +97,6 @@ repos:
             --no-strict-optional,
             --ignore-missing-imports,
         ]
-        additional_dependencies: [
-            types-attrs,
-            types-click,
-            types-setuptools
-        ]
         pass_filenames: false
         language_version: "3.9"
 -   repo: meta
