@@ -42,6 +42,8 @@ def main():
     if "{{ cookiecutter.add_readthedocs }}" == "no":
         remove_file(project_path, ".readthedocs.yaml")
 
+    subprocess.run(("git", "init"), check=True, capture_output=True)
+
     if "{{ cookiecutter.make_initial_commit }}" == "yes":
         # Create an initial commit on the main branch and restore global default name.
         p = subprocess.run(
@@ -51,7 +53,6 @@ def main():
         subprocess.run(
             ("git", "config", "--global", "init.defaultBranch", "main"), check=True
         )
-        subprocess.run(("git", "init"), check=True, capture_output=True)
         subprocess.run(
             ("git", "config", "user.name", "'{{ cookiecutter.github_username }}'"),
             check=True,
@@ -83,7 +84,7 @@ def main():
                 "executable was found."
             )
         else:
-            subprocess.run(("conda", "env", "create"), check=True)
+            subprocess.run((conda_exe, "env", "create"), check=True)
 
 
 if __name__ == "__main__":
