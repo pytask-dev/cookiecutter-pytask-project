@@ -1,11 +1,3 @@
-[build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.0"]
-
-
-[tool.setuptools_scm]
-write_to = "version.py"
-
-
 [tool.tryceratops]
 ignore = ["TC003"]
 

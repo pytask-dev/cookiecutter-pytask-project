@@ -8,12 +8,12 @@ from importlib.metadata import version
 
 # -- Project information -----------------------------------------------------
 
-project = "cookiecutter-pytask"
+project = "cookiecutter-pytask-project"
 author = "Tobias Raabe"
 copyright = f"2021, {author}"  # noqa: A001
 
 # The version, including alpha/beta/rc tags, but not commit hash and datestamps
-release = version("cookiecutter-pytask")
+release = version("cookiecutter-pytask-project")
 # The short X.Y version.
 version = ".".join(release.split(".")[:2])
 

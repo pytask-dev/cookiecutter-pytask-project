@@ -1,4 +1,4 @@
-Welcome to cookiecutter-pytask's documentation!
-===============================================
+Welcome to cookiecutter-pytask-project's documentation!
+=======================================================
 
 .. include:: ../../README.rst

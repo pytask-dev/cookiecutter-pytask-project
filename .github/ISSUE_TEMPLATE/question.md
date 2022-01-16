@@ -1,7 +1,7 @@
 ---
 
 name: Submit Question
-about: Ask a general question about cookiecutter-pytask
+about: Ask a general question about cookiecutter-pytask-project
 title: "QST:"
 labels: "question"
 
