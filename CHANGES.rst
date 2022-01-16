@@ -8,7 +8,7 @@ them in reverse chronological order.
 1.1.0 - 2022-01-16
 ------------------
 
-- :gh:`3` renames the cookiecutter from cookiecutter-pytask to
+- :gh:`4` renames the cookiecutter from cookiecutter-pytask to
   cookiecutter-pytask-project to avoid confusion with the cookiecutter for plugins. And
   remove unnecessary packaging stuff.
 
