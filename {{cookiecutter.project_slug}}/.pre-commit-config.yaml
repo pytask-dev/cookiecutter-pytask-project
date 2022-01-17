@@ -78,8 +78,7 @@ repos:
     rev: 1.5.0
     hooks:
     -   id: interrogate
-        args: [-v, --fail-under=40, "{{cookiecutter.project_slug}}"]
-        pass_filenames: false
+        args: [-v, --fail-under=40]
 -   repo: https://github.com/codespell-project/codespell
     rev: v2.1.0
     hooks:
