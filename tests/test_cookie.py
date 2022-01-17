@@ -101,21 +101,19 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
     assert result.exit_code == 0
     assert result.exception is None
 
-    if sys.platform != "win32":
-        # Switch branch before pre-commit because otherwise failure because on main
-        # branch.
-        subprocess.run(
-            ("git", "checkout", "-b", "test"), cwd=result.project_path, check=True
-        )
+    # Switch branch before pre-commit because otherwise failure because on main branch.
+    subprocess.run(
+        ("git", "checkout", "-b", "test"), cwd=result.project_path, check=True
+    )
 
-        # Check linting, but not on the first try since formatters fix stuff.
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
-            cwd=result.project_path,
-            check=False,
-        )
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
-            cwd=result.project_path,
-            check=True,
-        )
+    # Check linting, but not on the first try since formatters fix stuff.
+    subprocess.run(
+        ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
+        cwd=result.project_path,
+        check=False,
+    )
+    subprocess.run(
+        ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
+        cwd=result.project_path,
+        check=True,
+    )
