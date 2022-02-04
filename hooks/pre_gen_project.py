@@ -7,7 +7,7 @@ PYTHONVERSION_REGEX = r"^(3)\.(8|9|10)"
 PYTHONVERSION_MIN = "3.8"
 
 EXCEPTION_MSG_MODULE_NAME = """
-ERROR: The project slug ({module_name}) is not a valid name.
+ERROR: The project slug ({module_name}) is not a valid Python module name.
 
 Please do not use anything other than letters, numbers, and underscores '_'.
 The first character must not be a number.
