@@ -13,7 +13,7 @@ them in reverse chronological order.
   remove unnecessary packaging stuff.
 
 
-1.0.0 - 2021-01-05
+1.0.0 - 2022-01-05
 ------------------
 
 - :gh:`1` creates first release of a minimal cookiecutter template for a pytask project.
