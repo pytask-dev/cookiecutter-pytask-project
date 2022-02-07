@@ -1,4 +1,6 @@
 """This module contains hooks which are executed before the template is rendered."""
+from __future__ import annotations
+
 import re
 
 MODULE_REGEX = r"^[-_a-zA-Z0-9]*$"

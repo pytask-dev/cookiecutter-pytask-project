@@ -5,6 +5,7 @@ documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 """
 # -- Project information -----------------------------------------------------
+from __future__ import annotations
 
 project = "cookiecutter-pytask-project"
 author = "Tobias Raabe"
