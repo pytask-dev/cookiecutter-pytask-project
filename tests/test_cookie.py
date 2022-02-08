@@ -101,7 +101,7 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
     assert result.exit_code == 0
     assert result.exception is None
 
-    if sys.platform != "win32":
+    if sys.platform == "linux":
         # Switch branch before pre-commit because otherwise failure because on main
         # branch.
         subprocess.run(
