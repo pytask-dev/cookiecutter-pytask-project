@@ -5,7 +5,7 @@ import re
 
 MODULE_REGEX = r"^[-_a-zA-Z0-9]*$"
 ENVIRON_REGEX = r"^[-_a-zA-Z0-9]*$"
-PYTHONVERSION_REGEX = r"^(3)\.[6-9]$"
+PYTHONVERSION_REGEX = r"^(3\.(10|[7-9])(\.[0-9]{1,2})?)$"
 
 EXCEPTION_MSG_MODULE_NAME = """
 ERROR: The project slug ({module_name}) is not a valid Python module name.
@@ -35,7 +35,7 @@ def main():
     python_version = "{{ cookiecutter.python_version }}"
 
     if not re.match(PYTHONVERSION_REGEX, python_version):
-        raise ValueError("ERROR: The python version must be >= 3.6")  # noqa: TC003
+        raise ValueError("ERROR: The python version must be >= 3.7")  # noqa: TC003
 
 
 if __name__ == "__main__":

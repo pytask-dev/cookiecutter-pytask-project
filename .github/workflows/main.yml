@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        python-version: ['3.7', '3.8', '3.9']
+        python-version: ['3.7', '3.8', '3.9', '3.10']
 
     steps:
       - uses: actions/checkout@v2
@@ -39,7 +39,7 @@ jobs:
         run: tox -e pytest -- tests -m end_to_end --cov=./ --cov-report=xml -n auto
 
       - name: Upload coverage reports of end-to-end tests.
-        if: runner.os == 'Linux' && matrix.python-version == '3.8'
+        if: runner.os == 'Linux' && matrix.python-version == '3.9'
         shell: bash -l {0}
         run: bash <(curl -s https://codecov.io/bash) -F end_to_end -c
 
