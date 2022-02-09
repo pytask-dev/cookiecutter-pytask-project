@@ -10,6 +10,7 @@
   "python_version": "3.8",
   "add_tox": ["yes", "no"],
   "add_github_actions": ["yes", "no"],
+  "add_mypy": ["yes", "no"],
   "add_readthedocs": ["yes", "no"],
   "add_codecov": ["yes", "no"],
   "create_changelog": ["yes", "no"],

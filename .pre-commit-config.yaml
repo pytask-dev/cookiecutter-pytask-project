@@ -8,7 +8,11 @@ repos:
     -   id: check-merge-conflict
     -   id: check-vcs-permalinks
     -   id: check-yaml
-        exclude: "{{cookiecutter.project_slug}}/environment.yml"
+        exclude:  |
+            (?x)^(
+                {{cookiecutter.project_slug}}/environment.yml|
+                {{cookiecutter.project_slug}}/.pre-commit-config.yaml
+            )$
     -   id: debug-statements
     -   id: end-of-file-fixer
     -   id: fix-byte-order-marker
@@ -74,7 +78,13 @@ repos:
     rev: 1.5.0
     hooks:
     -   id: interrogate
-        args: [-v, --fail-under=40, "{{cookiecutter.project_slug}}"]
+        args: [
+            -v,
+            --fail-under=40,
+            --config,
+            pyproject.toml,
+            "{{cookiecutter.project_slug}}"
+        ]
         pass_filenames: false
 -   repo: https://github.com/codespell-project/codespell
     rev: v2.1.0

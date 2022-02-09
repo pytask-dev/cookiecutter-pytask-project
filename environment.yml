@@ -12,7 +12,7 @@ dependencies:
 
   # Package dependencies
   - cookiecutter
-  - pytask
+  - pytask >=0.1.7
 
   # Misc
   - black
