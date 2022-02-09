@@ -4,6 +4,13 @@ Changes
 This is a record of all past cookiecutter-pytask-project releases and what went into
 them in reverse chronological order.
 
+1.2.0 - 2022-xx-xx
+------------------
+
+- :gh:`7` skips concurrent CI builds.
+- :gh:`8` harmonizes cookiecutter-pytask-project with econ-project-templates.
+- :gh:`9` deprecates Python 3.6, add support for Python 3.10 and add mypy optionally.
+
 
 1.1.0 - 2022-01-16
 ------------------

@@ -3,7 +3,7 @@ cookiecutter-pytask-project
 
 .. image:: https://img.shields.io/github/license/pytask-dev/cookiecutter-pytask-project
     :alt: MIT license
-    :target: https://pypi.org/project/pytask
+    :target: https://github.com/pytask-dev/cookiecutter-pytask-project
 
 .. image:: https://readthedocs.org/projects/cookiecutter-pytask-project/badge/?version=latest
     :target: https://cookiecutter-pytask-project.readthedocs.io/en/latest
@@ -53,7 +53,7 @@ A: This is called the src layout and the advantages are discussed in this `artic
 Hynek Schlawack <https://hynek.me/articles/testing-packaging/>`_.
 
 Although the article discusses the src layout in terms of Python packages, it is also
-beneficial to structure a project the same way. Next to the reasons discussed there,
-it is possible to use a single Python environment for multiple projects without messing
-with your PYTHONPATH (via `python setup.py ...` or `conda develop ...`) each time and
+beneficial to structure a project the same way. Next to the reasons discussed there, it
+is possible to use a single Python environment for multiple projects without messing
+with your PYTHONPATH (via ``pip install -e .`` or ``conda develop .``) each time and
 still import modules.
