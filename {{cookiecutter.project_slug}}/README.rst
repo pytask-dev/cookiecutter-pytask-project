@@ -39,5 +39,5 @@ Credits
 -------
 
 This project was created with `cookiecutter <https://github.com/audreyr/cookiecutter>`_
-and the `cookiecutter-pytask-project <https://github.com/pytask-dev/cookiecutter-pytask-project>`_
-template.
+and the `cookiecutter-pytask-project
+<https://github.com/pytask-dev/cookiecutter-pytask-project>`_ template.

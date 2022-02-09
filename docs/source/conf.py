@@ -6,6 +6,7 @@ documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
 """
 # -- Project information -----------------------------------------------------
 
+
 project = "cookiecutter-pytask-project"
 author = "Tobias Raabe"
 copyright = f"2021, {author}"  # noqa: A001
