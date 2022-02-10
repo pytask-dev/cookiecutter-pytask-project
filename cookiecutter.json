@@ -1,6 +1,6 @@
 {
   "author": "Arianna W. Rosenbluth",
-  "email": "{{ cookiecutter.author.lower().replace(' ', '') }}@mail.edu",
+  "email": "{{ cookiecutter.author.lower().replace(' ', '') }}@nowhere.edu",
   "project_name": "Reproducible Research Template",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
   "project_description": "A project for ...",
@@ -15,13 +15,15 @@
   "add_codecov": ["yes", "no"],
   "create_changelog": ["yes", "no"],
   "open_source_license": [
-    "MIT", "BSD", "ISC", "Apache Software License 2.0",
-    "GNU General Public License v3", "Not open source"
+    "MIT",
+    "BSD",
+    "ISC",
+    "Apache Software License 2.0",
+    "GNU General Public License v3",
+    "Not open source"
   ],
   "make_initial_commit": ["no", "yes"],
   "conda_environment_name": "{{ cookiecutter.project_slug }}",
   "create_conda_environment_at_finish": ["no", "yes"],
-  "_copy_without_render": [
-    ".github/workflows/main.yml"
-  ]
+  "_copy_without_render": [".github/workflows/main.yml"]
 }
