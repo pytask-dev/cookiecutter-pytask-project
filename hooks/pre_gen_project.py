@@ -25,7 +25,7 @@ ERROR: The python version must be >= {PYTHONVERSION_MIN}, got {pythonversion}.
 """
 
 
-def main():
+def main() -> None:
     """Apply pre-generation hooks."""
     module_name = "{{ cookiecutter.project_slug}}"
 
