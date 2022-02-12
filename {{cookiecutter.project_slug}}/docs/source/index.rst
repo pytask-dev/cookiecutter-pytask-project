@@ -1,5 +1,5 @@
 Welcome to {{ cookiecutter.project_name }}'s documentation!
-{% for _ in range(cookiecutter.project_name | length + 28 %}={% endfor %}
+{% for _ in range(cookiecutter.project_name | length + 28) %}={% endfor %}
 
 .. toctree::
    :maxdepth: 2
