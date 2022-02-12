@@ -68,6 +68,7 @@ extlinks = {
 # Link objects to other documentations.
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3.9", None),
+    "pytask": ("https://pytask-dev.readthedocs.io/en/stable/", None),
 }
 
 
