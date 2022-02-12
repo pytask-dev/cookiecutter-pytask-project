@@ -16,6 +16,7 @@ dependencies:
 
   # Misc
   - black
+  - ipython
   - mypy
   - pre-commit
   - pytest
