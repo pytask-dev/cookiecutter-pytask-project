@@ -1,0 +1,18 @@
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  - python >= 3.7
+  - pip
+  - setuptools_scm
+  - toml
+
+  # Documentation
+  - furo
+  - ipython
+  - nbsphinx
+  - sphinx
+  - sphinx-autoapi
+  - sphinx-copybutton
+  - sphinx-panels
