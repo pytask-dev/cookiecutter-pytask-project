@@ -18,6 +18,7 @@ dependencies:
 
   # Misc
   - black
+  - ipython
   - pre-commit
   - pytest
   - pytest-cov
