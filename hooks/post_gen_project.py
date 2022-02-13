@@ -28,9 +28,6 @@ def main() -> None:
     """Apply post generation hooks."""
     project_path = Path.cwd()
 
-    if "{{ cookiecutter.create_changelog }}" == "no":
-        remove_file(project_path, "CHANGES.rst")
-
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
         remove_file(project_path, "LICENSE")
 

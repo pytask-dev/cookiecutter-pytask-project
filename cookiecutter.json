@@ -12,7 +12,6 @@
   "add_mypy": ["yes", "no"],
   "add_readthedocs": ["yes", "no"],
   "add_codecov": ["yes", "no"],
-  "create_changelog": ["yes", "no"],
   "open_source_license": [
     "MIT",
     "BSD",

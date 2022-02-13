@@ -75,18 +75,6 @@ def test_remove_license(cookies):
 
 
 @pytest.mark.end_to_end
-def test_remove_changes(cookies):
-    result = cookies.bake(extra_context={"create_changelog": "no"})
-
-    changes = result.project_path.joinpath("CHANGES.rst")
-
-    assert result.exit_code == 0
-    assert result.exception is None
-
-    assert not changes.exists()
-
-
-@pytest.mark.end_to_end
 @pytest.mark.skipif(os.environ.get("CI") is None, reason="Run only in CI.")
 def test_check_conda_environment_creation_and_run_all_checks(cookies):
     """Test that the conda environment is created and pre-commit passes."""

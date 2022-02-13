@@ -8,4 +8,5 @@ Welcome to cookiecutter-pytask-project's documentation!
     :caption: Contents:
     :maxdepth: 1
 
+    changes
     api
