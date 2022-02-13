@@ -45,7 +45,7 @@ exclude_patterns = ["build", "Thumbs.db", ".DS_Store", "**.ipynb_checkpoints"]
 
 # Configuration for autoapi to generate and API page.
 autoapi_type = "python"
-autoapi_dirs = ["../../src"]
+autoapi_dirs = ["../../hooks"]
 autoapi_keep_files = False
 autoapi_add_toctree_entry = False
 
