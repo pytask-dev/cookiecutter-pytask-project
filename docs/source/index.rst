@@ -5,7 +5,7 @@ Welcome to cookiecutter-pytask-project's documentation!
 
 
 .. toctree::
-    :caption: Table of Contents
+    :caption: Contents:
     :maxdepth: 1
 
     api
