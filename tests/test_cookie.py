@@ -121,6 +121,6 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
         )
         subprocess.run(
             ("conda", "run", "-n", "__test__", "make", "html"),
-            cwd=result.project_path,
+            cwd=result.project_path / "docs",
             check=True,
         )
