@@ -9,13 +9,12 @@ from importlib.metadata import version
 
 # -- Project information -----------------------------------------------------
 
-
-project = "cookiecutter-pytask-project"
-author = "Tobias Raabe"
-copyright = f"2021, {author}"  # noqa: A001
+project = "{{ cookiecutter.project_name }}"
+author = "{{ cookiecutter.author }}"
+copyright = f"2022, {author}"  # noqa: A001
 
 # The version, including alpha/beta/rc tags, but not commit hash and datestamps
-release = version("cookiecutter-pytask-project")
+release = version("{{ cookiecutter.project_slug }}")
 # The short X.Y version.
 version = ".".join(release.split(".")[:2])
 
@@ -48,7 +47,7 @@ exclude_patterns = ["build", "Thumbs.db", ".DS_Store", "**.ipynb_checkpoints"]
 
 # Configuration for autoapi to generate and API page.
 autoapi_type = "python"
-autoapi_dirs = ["../../hooks"]
+autoapi_dirs = ["../../src"]
 autoapi_keep_files = False
 autoapi_add_toctree_entry = False
 
@@ -59,7 +58,11 @@ copybutton_prompt_is_regexp = True
 # Use these roles to create links to github users and pull requests.
 extlinks = {
     "ghuser": ("https://github.com/%s", "@"),
-    "gh": ("https://github.com/pytask-dev/cookiecutter-pytask-project/pull/%s", "#"),
+    "gh": (
+        "https://github.com/{{ cookiecutter.github_username }}/"
+        "{{ cookiecutter.project_slug }}/pull/%s",
+        "#",
+    ),
 }
 
 # Link objects to other documentations.

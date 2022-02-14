@@ -1,11 +1,13 @@
 """This module contains hooks which are executed after the template is rendered."""
+from __future__ import annotations
+
 import shutil
 import subprocess
 import warnings
 from pathlib import Path
 
 
-def remove_file(*filepath):
+def remove_file(*filepath: str | Path) -> None:
     """Remove a file."""
     try:
         Path(*filepath).unlink()
@@ -13,7 +15,7 @@ def remove_file(*filepath):
         pass
 
 
-def remove_directory(*filepath):
+def remove_directory(*filepath: str | Path) -> None:
     """Remove a directory."""
     try:
         path = Path(*filepath)
@@ -22,12 +24,9 @@ def remove_directory(*filepath):
         pass
 
 
-def main():
+def main() -> None:
     """Apply post generation hooks."""
     project_path = Path.cwd()
-
-    if "{{ cookiecutter.create_changelog }}" == "no":
-        remove_file(project_path, "CHANGES.rst")
 
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
         remove_file(project_path, "LICENSE")
