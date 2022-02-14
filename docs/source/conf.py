@@ -4,6 +4,9 @@ This file only contains a selection of the most common options. For a full list 
 documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 """
+from importlib.metadata import version
+
+
 # -- Project information -----------------------------------------------------
 
 
@@ -12,9 +15,9 @@ author = "Tobias Raabe"
 copyright = f"2021, {author}"  # noqa: A001
 
 # The version, including alpha/beta/rc tags, but not commit hash and datestamps
-release = "1.1.0"
+release = version("cookiecutter-pytask-project")
 # The short X.Y version.
-version = "1.1"
+version = ".".join(release.split(".")[:2])
 
 
 # -- General configuration ---------------------------------------------------
