@@ -20,8 +20,8 @@ Please do not use anything other than letters, numbers, underscores '_',
 and minus signs '-'.
 """
 
-EXCEPTION_MSG_PYTHONVERSION = """
-ERROR: The python version must be >= {PYTHONVERSION_MIN}, got {pythonversion}.
+EXCEPTION_MSG_PYTHONVERSION = f"""
+ERROR: The python version must be >= {PYTHONVERSION_MIN}, got {{python_version}}.
 """
 
 
@@ -30,18 +30,18 @@ def main() -> None:
     module_name = "{{ cookiecutter.project_slug}}"
 
     if not re.match(MODULE_REGEX, module_name):
-        raise ValueError(EXCEPTION_MSG_MODULE_NAME.format(module_name))
+        raise ValueError(EXCEPTION_MSG_MODULE_NAME.format(module_name=module_name))
 
     environment_name = "{{ cookiecutter.conda_environment_name }}"
 
     if not re.match(ENVIRON_REGEX, environment_name):
-        raise ValueError(EXCEPTION_MSG_ENVIRON_NAME.format(environment_name))
+        raise ValueError(EXCEPTION_MSG_ENVIRON_NAME.format(environment_name=environment_name))
 
     python_version = "{{ cookiecutter.python_version }}"
 
     if not re.match(PYTHONVERSION_REGEX, python_version):
         raise ValueError(
-            EXCEPTION_MSG_PYTHONVERSION.format(PYTHONVERSION_MIN, python_version)
+            EXCEPTION_MSG_PYTHONVERSION.format(python_version=python_version)
         )
 
 
