@@ -20,8 +20,8 @@ Please do not use anything other than letters, numbers, underscores '_',
 and minus signs '-'.
 """
 
-EXCEPTION_MSG_PYTHONVERSION = f"""
-ERROR: The python version must be >= {PYTHONVERSION_MIN}, got {{python_version}}.
+EXCEPTION_MSG_PYTHONVERSION = """
+ERROR: The python version must be >= {min_python_version}, got {python_version}.
 """
 
 
@@ -43,7 +43,8 @@ def main() -> None:
 
     if not re.match(PYTHONVERSION_REGEX, python_version):
         raise ValueError(
-            EXCEPTION_MSG_PYTHONVERSION.format(python_version=python_version)
+            EXCEPTION_MSG_PYTHONVERSION.format(
+                min_python_version=PYTHONVERSION_MIN, python_version=python_version)
         )
 
 
