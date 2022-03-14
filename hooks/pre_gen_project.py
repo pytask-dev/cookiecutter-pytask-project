@@ -35,7 +35,9 @@ def main() -> None:
     environment_name = "{{ cookiecutter.conda_environment_name }}"
 
     if not re.match(ENVIRON_REGEX, environment_name):
-        raise ValueError(EXCEPTION_MSG_ENVIRON_NAME.format(environment_name=environment_name))
+        raise ValueError(
+            EXCEPTION_MSG_ENVIRON_NAME.format(environment_name=environment_name)
+        )
 
     python_version = "{{ cookiecutter.python_version }}"
 
