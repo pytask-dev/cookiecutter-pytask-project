@@ -2,5 +2,5 @@
     Title  = {{ "{" }}A Python tool for managing scientific workflows.{{ "}" }},
     Author = {{ "{" }}{{ cookiecutter.author }}{{ "}" }},
     Year   = {{ "{" }}{% now 'local', '%Y' %}{{ "}" }},
-    Url    = {{ "{" }}https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}{{ "}" ]}}
+    Url    = {{ "{" }}https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}{{ "}" }}
 {{ "}" }}
