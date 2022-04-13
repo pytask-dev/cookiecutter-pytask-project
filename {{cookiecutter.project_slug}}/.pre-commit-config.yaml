@@ -23,9 +23,6 @@ repos:
     -   id: python-no-eval
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
-    -   id: rst-backticks
-    -   id: rst-directive-colons
-    -   id: rst-inline-touching-normal
     -   id: text-unicode-replacement-char
 -   repo: https://github.com/asottile/pyupgrade
     rev: v2.32.0
@@ -45,11 +42,6 @@ repos:
     rev: 22.3.0
     hooks:
     -   id: black
--   repo: https://github.com/asottile/blacken-docs
-    rev: v1.12.1
-    hooks:
-    -   id: blacken-docs
-        additional_dependencies: [black]
 -   repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
@@ -70,10 +62,6 @@ repos:
             pydocstyle,
             Pygments,
         ]
--   repo: https://github.com/PyCQA/doc8
-    rev: 0.11.1
-    hooks:
-    -   id: doc8
 -   repo: https://github.com/econchick/interrogate
     rev: 1.5.0
     hooks:
