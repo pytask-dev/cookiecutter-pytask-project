@@ -27,6 +27,7 @@ dependencies:
 
   # Documentation
   - furo
+  - myst-parser
   - nbsphinx
   - sphinx
   - sphinx-autoapi
