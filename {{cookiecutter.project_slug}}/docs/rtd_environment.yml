@@ -17,3 +17,7 @@ dependencies:
   - sphinx-autoapi
   - sphinx-copybutton
   - sphinx-panels
+
+  - pip:
+    - ../
+    - sphinxext-opengraph
