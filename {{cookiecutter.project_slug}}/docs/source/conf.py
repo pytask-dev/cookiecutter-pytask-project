@@ -10,11 +10,12 @@ from importlib.metadata import version
 # -- Project information -----------------------------------------------------
 
 project = "{{ cookiecutter.project_name }}"
+project_slug = "{{ cookiecutter.project_slug }}"
 author = "{{ cookiecutter.author }}"
 copyright = f"2022, {author}"  # noqa: A001
 
 # The version, including alpha/beta/rc tags, but not commit hash and datestamps
-release = version("{{ cookiecutter.project_slug }}")
+release = version(project_slug)
 # The short X.Y version.
 version = ".".join(release.split(".")[:2])
 
@@ -31,10 +32,12 @@ extensions = [
     "sphinx.ext.extlinks",
     "sphinx.ext.intersphinx",
     "sphinx.ext.napoleon",
+    "sphinxext.opengraph",
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
     "sphinx_panels",
     "autoapi.extension",
+    "myst_parser",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -56,13 +59,12 @@ copybutton_prompt_text = r"\$ |>>> |In \[\d\]: "
 copybutton_prompt_is_regexp = True
 
 # Use these roles to create links to github users and pull requests.
+_repo = "https://github.com/{{ cookiecutter.github_username }}/" + project_slug
 extlinks = {
-    "ghuser": ("https://github.com/%s", "@"),
-    "gh": (
-        "https://github.com/{{ cookiecutter.github_username }}/"
-        "{{ cookiecutter.project_slug }}/pull/%s",
-        "#",
-    ),
+    "pypi": ("https://pypi.org/project/%s/", ""),
+    "issue": (f"{_repo}/issues/%s", "issue #"),
+    "pull": (f"{_repo}/pull/%s", "pull request #"),
+    "user": ("https://github.com/%s", "@"),
 }
 
 # Link objects to other documentations.
@@ -70,6 +72,9 @@ intersphinx_mapping = {
     "python": ("https://docs.python.org/3.9", None),
     "pytask": ("https://pytask-dev.readthedocs.io/en/stable/", None),
 }
+
+# MyST
+myst_enable_extensions = []
 
 
 # -- Options for HTML output -------------------------------------------------

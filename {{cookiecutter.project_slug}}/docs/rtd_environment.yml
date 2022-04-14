@@ -12,7 +12,12 @@ dependencies:
   - furo
   - ipython
   - nbsphinx
+  - myst-parser
   - sphinx
   - sphinx-autoapi
   - sphinx-copybutton
   - sphinx-panels
+
+  - pip:
+    - ../
+    - sphinxext-opengraph

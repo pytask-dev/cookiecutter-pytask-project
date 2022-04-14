@@ -23,9 +23,6 @@ repos:
     -   id: python-no-eval
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
-    -   id: rst-backticks
-    -   id: rst-directive-colons
-    -   id: rst-inline-touching-normal
     -   id: text-unicode-replacement-char
 -   repo: https://github.com/asottile/pyupgrade
     rev: v2.32.0
@@ -45,11 +42,6 @@ repos:
     rev: 22.3.0
     hooks:
     -   id: black
--   repo: https://github.com/asottile/blacken-docs
-    rev: v1.12.1
-    hooks:
-    -   id: blacken-docs
-        additional_dependencies: [black]
 -   repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
@@ -70,10 +62,10 @@ repos:
             pydocstyle,
             Pygments,
         ]
--   repo: https://github.com/PyCQA/doc8
-    rev: 0.11.1
+-   repo: https://github.com/guilatrova/tryceratops
+    rev: v1.0.1
     hooks:
-    -   id: doc8
+    -   id: tryceratops
 -   repo: https://github.com/econchick/interrogate
     rev: 1.5.0
     hooks:
@@ -83,10 +75,31 @@ repos:
     rev: v2.1.0
     hooks:
     -   id: codespell
--   repo: https://github.com/guilatrova/tryceratops
-    rev: v1.0.1
+-   repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.14
     hooks:
-    -   id: tryceratops
+    -   id: mdformat
+        additional_dependencies: [
+            mdformat-gfm,
+            mdformat-black,
+        ]
+        args: [--wrap, "88"]
+        files: (README\.md)
+-   repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.14
+    hooks:
+    -   id: mdformat
+        additional_dependencies: [
+            mdformat-myst,
+            mdformat-black,
+        ]
+        args: [--wrap, "88"]
+        files: (docs/.)
+        # Exclude files with admonitions.
+        # exclude: |
+        #     (?x)^(
+        #         path/to/file.py
+        #     )$
 {% if cookiecutter.add_mypy == "yes" %}-   repo: https://github.com/pre-commit/mirrors-mypy
     rev: 'v0.942'
     hooks:

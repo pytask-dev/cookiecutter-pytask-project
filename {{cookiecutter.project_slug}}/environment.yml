@@ -27,9 +27,14 @@ dependencies:
 
   # Documentation
   - furo
+  - myst-parser
   - nbsphinx
   - sphinx
   - sphinx-autoapi
   - sphinx-click
   - sphinx-copybutton
   - sphinx-panels
+
+  - pip:
+    - -e .
+    - sphinxext-opengraph
