@@ -36,5 +36,4 @@ dependencies:
   - sphinx-panels
 
   - pip:
-    - ../
     - sphinxext-opengraph
