@@ -26,24 +26,26 @@ Then, set up the template with
 $ cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
 ```
 
-## FAQ
+## Documentation
 
-Q: Why are the source files nested in `src/<project_slug>`?
+If you are new to pytask, just follow the
+[tutorials](https://pytask-dev.readthedocs.io/en/stable/tutorials/index.html) which will
+help you with your first steps like how to write the first task.
 
-A: This is called the src layout and the advantages are discussed in this
-[article by Hynek Schlawack](https://hynek.me/articles/testing-packaging/).
+If you are already familiar with pytask, the
+[how-to guides](https://pytask-dev.readthedocs.io/en/stable/how_to_guides/index.html)
+offer more in-depth guidance on complex projects.
 
-Although the article discusses the src layout in terms of Python packages, it is also
-beneficial to structure a project the same way. Next to the reasons discussed there, it
-is possible to use a single Python environment for multiple projects without messing
-with your PYTHONPATH (via `pip install -e .` or `conda develop .`) each time and still
-import modules.
+In general, you will find most guidance in the
+[documentation](https://pytask-dev.readthedocs.io/en/stable/index.html) and some advice
+in the FAQ below.
 
 ```{toctree}
 ---
 caption: 'Contents:'
 maxdepth: 1
 ---
+faq
 changes
 api
 ```
