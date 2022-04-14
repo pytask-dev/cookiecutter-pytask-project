@@ -7,6 +7,38 @@
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/pytask-dev/cookiecutter-pytask-project/main.svg)](https://results.pre-commit.ci/latest/github/pytask-dev/cookiecutter-pytask-project/main)
 [![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
+This repository contains a minimal cookiecutter template for a project with
+[pytask](https://github.com/pytask-dev/pytask).
+
+## Usage
+
+First, install cookiecutter.
+
+```console
+$ pip install cookiecutter
+
+$ conda install -c conda-forge cookiecutter
+```
+
+Then, set up the template with
+
+```console
+$ cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
+```
+
+## FAQ
+
+Q: Why are the source files nested in `src/<project_slug>`?
+
+A: This is called the src layout and the advantages are discussed in this
+[article by Hynek Schlawack](https://hynek.me/articles/testing-packaging/).
+
+Although the article discusses the src layout in terms of Python packages, it is also
+beneficial to structure a project the same way. Next to the reasons discussed there, it
+is possible to use a single Python environment for multiple projects without messing
+with your PYTHONPATH (via `pip install -e .` or `conda develop .`) each time and still
+import modules.
+
 ```{toctree}
 ---
 caption: 'Contents:'
