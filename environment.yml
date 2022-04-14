@@ -34,3 +34,7 @@ dependencies:
   - sphinx-click
   - sphinx-copybutton
   - sphinx-panels
+
+  - pip:
+    - ../
+    - sphinxext-opengraph
