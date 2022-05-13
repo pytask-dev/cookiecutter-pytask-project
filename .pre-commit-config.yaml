@@ -1,3 +1,8 @@
+exclude: |
+    (?x)^(
+        {{cookiecutter.project_slug}}/tests/test_import.py
+    )$
+
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.2.0
@@ -71,7 +76,9 @@ repos:
             --fail-under=40,
             --config,
             pyproject.toml,
-            "{{cookiecutter.project_slug}}"
+            "{{cookiecutter.project_slug}}",
+            --exclude,
+            "{{cookiecutter.project_slug}}/tests/test_import.py"
         ]
         pass_filenames: false
 -   repo: https://github.com/executablebooks/mdformat

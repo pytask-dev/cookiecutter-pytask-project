@@ -3,7 +3,11 @@
 This is a record of all past cookiecutter-pytask-project releases and what went into
 them in reverse chronological order.
 
-## 1.2.0 - 2022-xx-xx
+## 1.2.1 - 2022-05-13
+
+- {pull}`20` fixes some small rendering issues.
+
+## 1.2.0 - 2022-04-14
 
 - {pull}`7` skips concurrent CI builds.
 - {pull}`8` harmonizes cookiecutter-pytask-project with econ-project-templates.

@@ -1,5 +1,5 @@
 include CITATION
-{% if cookiecutter.open_source_license == 'Not open source' %}include LICENSE
+{% if cookiecutter.open_source_license != 'Not open source' %}include LICENSE
 {% endif %}
 exclude *.yaml
 exclude *.yml

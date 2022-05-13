@@ -108,12 +108,21 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
             check=True,
         )
 
-        # Test building documentation
+        # Install package.
         subprocess.run(
             ("conda", "run", "-n", "__test__", "pip", "install", "-e", "."),
             cwd=result.project_path,
             check=True,
         )
+
+        # Run tests.
+        subprocess.run(
+            ("conda", "run", "-n", "__test__", "pytest"),
+            cwd=result.project_path,
+            check=True,
+        )
+
+        # Test building documentation
         subprocess.run(
             ("conda", "run", "-n", "__test__", "make", "html"),
             cwd=result.project_path / "docs",
