@@ -1,3 +1,8 @@
+exclude: |
+    (?x)^(
+        {{cookiecutter.project_slug}}/tests/test_import.py
+    )$
+
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.2.0
