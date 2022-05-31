@@ -31,7 +31,6 @@ dependencies:
   - nbsphinx
   - sphinx
   - sphinx-autoapi
-  - sphinx-click
   - sphinx-copybutton
   - sphinx-panels
 
