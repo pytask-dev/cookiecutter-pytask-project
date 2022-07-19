@@ -11,8 +11,8 @@ dependencies:
   - toml
 
   # Package dependencies
-  - cookiecutter
-  - pytask >=0.1.7
+  - cookiecutter >=2.1.0
+  - pytask >=0.2
 
   # Misc
   - black
@@ -20,7 +20,7 @@ dependencies:
   - mypy
   - pre-commit
   - pytest
-  - pytest-cookies
+  # - pytest-cookies
   - pytest-cov
   - pytest-xdist
   - tox-conda
@@ -36,3 +36,4 @@ dependencies:
 
   - pip:
     - sphinxext-opengraph
+    - git+https://github.com/andriihomiak/pytest-cookies.git@fix/quotes_in_user_config
