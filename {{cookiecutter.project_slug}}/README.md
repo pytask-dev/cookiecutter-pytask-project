@@ -22,23 +22,19 @@ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/main)
 
 To get started, create the environment with
 
-.. code-block:: console
-
-```
+```console
 $ conda/mamba env create
 ```
 
 To build the project, type
 
-.. code-block:: console
-
-```
+```console
 $ pytask
 ```
 
 ## Credits
 
-This project was created with `cookiecutter <https://github.com/audreyr/cookiecutter>`\_
+This project was created with [cookiecutter](https://github.com/audreyr/cookiecutter)
 and the
-`cookiecutter-pytask-project <https://github.com/pytask-dev/cookiecutter-pytask-project>`\_
+[cookiecutter-pytask-project](https://github.com/pytask-dev/cookiecutter-pytask-project)
 template.
