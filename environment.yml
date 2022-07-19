@@ -20,7 +20,7 @@ dependencies:
   - mypy
   - pre-commit
   - pytest
-  # - pytest-cookies
+  # - pytest-cookies>=0.6.2
   - pytest-cov
   - pytest-xdist
   - tox-conda
