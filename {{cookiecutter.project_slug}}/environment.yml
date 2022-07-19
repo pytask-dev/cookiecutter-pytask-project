@@ -14,7 +14,7 @@ dependencies:
   - conda-lock
 
   # Package dependencies
-  - pytask >=0.1.7
+  - pytask >=0.2
 
   # Misc
   - black
@@ -31,7 +31,6 @@ dependencies:
   - nbsphinx
   - sphinx
   - sphinx-autoapi
-  - sphinx-click
   - sphinx-copybutton
   - sphinx-panels
 
