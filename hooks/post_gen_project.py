@@ -41,7 +41,9 @@ def main() -> None:
     if "{{ cookiecutter.add_readthedocs }}" == "no":
         remove_file(project_path, ".readthedocs.yaml")
 
-    subprocess.run(("git", "init"), check=True, capture_output=True)
+    subprocess.run(
+        ("git", "init", "--initial-branch", "main"), check=True, capture_output=True
+    )
 
     if "{{ cookiecutter.make_initial_commit }}" == "yes":
         # Create an initial commit on the main branch and restore global default name.
@@ -59,7 +61,6 @@ def main() -> None:
             check=True,
             capture_output=True,
         )
-        subprocess.run(("git", "branch", "-m", "main"), check=True)
 
     if "{{ cookiecutter.create_conda_environment_at_finish }}" == "yes":
         if shutil.which("mamba") is not None:
