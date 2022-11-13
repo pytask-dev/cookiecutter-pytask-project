@@ -3,7 +3,7 @@ import re
 
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]*$"
 ENVIRON_REGEX = r"^[-_a-zA-Z0-9]*$"
-PYTHONVERSION_REGEX = r"^(3\.(10|[7-9])(\.[0-9]{1,2})?)$"
+PYTHONVERSION_REGEX = r"^(3\.(1[0-9]|[7-9])(\.[0-9]{1,2})?)$"
 PYTHONVERSION_MIN = "3.7"
 
 EXCEPTION_MSG_MODULE_NAME = """
