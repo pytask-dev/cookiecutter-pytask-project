@@ -3,10 +3,14 @@
 This is a record of all past cookiecutter-pytask-project releases and what went into
 them in reverse chronological order.
 
-## 1.2.2 - 2022-05-31
+## 1.3.0 - 2022-11-20
 
 - {pull}`22` removes sphinx-click and renames docs environment to
   `docs_environment.yml`.
+- {pull}`25` adds docsformatter.
+- {pull}`26` uses a better approach to set the initial branch.
+- {pull}`27` adds support for Python 3.11.
+- {pull}`28` does some cleaning. Thanks {user}`timmens`!
 
 ## 1.2.1 - 2022-05-13
 
