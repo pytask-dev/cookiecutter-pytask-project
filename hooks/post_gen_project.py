@@ -4,24 +4,21 @@ from __future__ import annotations
 import shutil
 import subprocess
 import warnings
+from contextlib import suppress
 from pathlib import Path
 
 
 def remove_file(*filepath: str | Path) -> None:
     """Remove a file."""
-    try:
+    with suppress(FileNotFoundError):
         Path(*filepath).unlink()
-    except FileNotFoundError:
-        pass
 
 
 def remove_directory(*filepath: str | Path) -> None:
     """Remove a directory."""
-    try:
+    with suppress(FileNotFoundError):
         path = Path(*filepath)
         shutil.rmtree(path)
-    except FileNotFoundError:
-        pass
 
 
 def main() -> None:

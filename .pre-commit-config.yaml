@@ -43,6 +43,14 @@ repos:
     rev: v3.9.0
     hooks:
     -   id: reorder-python-imports
+-   repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v1.20.0
+    hooks:
+    -   id: setup-cfg-fmt
+        exclude:  |
+            (?x)^(
+                {{cookiecutter.project_slug}}/setup.cfg
+            )$
 -   repo: https://github.com/psf/black
     rev: 22.10.0
     hooks:
@@ -72,6 +80,16 @@ repos:
             pydocstyle,
             Pygments,
         ]
+-   repo: https://github.com/dosisod/refurb
+    rev: v1.5.0
+    hooks:
+    -   id: refurb
+        args: [--ignore, FURB126]
+        exclude: ({{cookiecutter.project_slug}})
+-   repo: https://github.com/guilatrova/tryceratops
+    rev: v1.1.0
+    hooks:
+    -   id: tryceratops
 -   repo: https://github.com/econchick/interrogate
     rev: 1.5.0
     hooks:
@@ -86,6 +104,10 @@ repos:
             "{{cookiecutter.project_slug}}/tests/test_import.py"
         ]
         pass_filenames: false
+-   repo: https://github.com/codespell-project/codespell
+    rev: v2.1.0
+    hooks:
+    -   id: codespell
 -   repo: https://github.com/executablebooks/mdformat
     rev: 0.7.16
     hooks:
