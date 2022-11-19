@@ -35,7 +35,7 @@ repos:
     -   id: reorder-python-imports{% if cookiecutter.add_mypy == "yes" %}
         args: [--py37-plus, --add-import, 'from __future__ import annotations']{% endif %}
 -   repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v1.20.0
+    rev: v2.20.0
     hooks:
     -   id: setup-cfg-fmt
 -   repo: https://github.com/psf/black
