@@ -10,7 +10,8 @@ them in reverse chronological order.
 - {pull}`25` adds docsformatter.
 - {pull}`26` uses a better approach to set the initial branch.
 - {pull}`27` adds support for Python 3.11.
-- {pull}`28` does some cleaning. Thanks {user}`timmens`!
+- {pull}`28` does some cleaning and deprecates support for Python 3.7. Thanks
+  {user}`timmens`!
 
 ## 1.2.1 - 2022-05-13
 
