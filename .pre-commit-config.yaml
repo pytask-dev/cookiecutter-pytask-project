@@ -96,6 +96,10 @@ repos:
         ]
         args: [--wrap, "88"]
         files: (README\.md)
+        exclude: |
+          (?x)^(
+              {{cookiecutter.project_slug}}/README.md
+          )$
 -   repo: https://github.com/executablebooks/mdformat
     rev: 0.7.14
     hooks:
