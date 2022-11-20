@@ -5,13 +5,13 @@ import sys
 import pytest
 
 
+_PYTHON_VERSION = ".".join(map(str, sys.version_info[:2]))
+
+
 @pytest.mark.end_to_end
 def test_bake_project(cookies):
-    major, minor = sys.version_info[:2]
-    python_version = f"{major}.{minor}"
-
     result = cookies.bake(
-        extra_context={"project_slug": "helloworld", "python_version": python_version}
+        extra_context={"project_slug": "helloworld", "python_version": _PYTHON_VERSION}
     )
 
     assert result.exit_code == 0
@@ -22,7 +22,12 @@ def test_bake_project(cookies):
 
 @pytest.mark.end_to_end
 def test_remove_readthedocs(cookies):
-    result = cookies.bake(extra_context={"add_readthedocs": "no"})
+    result = cookies.bake(
+        extra_context={
+            "add_readthedocs": "no",
+            "python_version": ".".join(map(str, sys.version_info[:2])),
+        }
+    )
 
     rtd_config = result.project_path.joinpath(".readthedocs.yaml")
     readme = result.project_path.joinpath("README.md").read_text()
@@ -36,7 +41,9 @@ def test_remove_readthedocs(cookies):
 
 @pytest.mark.end_to_end
 def test_remove_github_actions(cookies):
-    result = cookies.bake(extra_context={"add_github_actions": "no"})
+    result = cookies.bake(
+        extra_context={"add_github_actions": "no", "python_version": _PYTHON_VERSION}
+    )
 
     ga_config = result.project_path.joinpath(".github", "workflows", "main.yml")
     readme = result.project_path.joinpath("README.md").read_text()
@@ -50,7 +57,9 @@ def test_remove_github_actions(cookies):
 
 @pytest.mark.end_to_end
 def test_remove_tox(cookies):
-    result = cookies.bake(extra_context={"add_tox": "no"})
+    result = cookies.bake(
+        extra_context={"add_tox": "no", "python_version": _PYTHON_VERSION}
+    )
 
     ga_config = result.project_path.joinpath(".github", "workflows", "main.yml")
     tox = result.project_path.joinpath("tox.ini")
@@ -64,7 +73,12 @@ def test_remove_tox(cookies):
 
 @pytest.mark.end_to_end
 def test_remove_license(cookies):
-    result = cookies.bake(extra_context={"open_source_license": "Not open source"})
+    result = cookies.bake(
+        extra_context={
+            "open_source_license": "Not open source",
+            "python_version": _PYTHON_VERSION,
+        }
+    )
 
     license_ = result.project_path.joinpath("LICENSE")
 
@@ -83,6 +97,7 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
             "conda_environment_name": "__test__",
             "make_initial_commit": "yes",
             "create_conda_environment_at_finish": "yes",
+            "python_version": _PYTHON_VERSION,
         }
     )
 
