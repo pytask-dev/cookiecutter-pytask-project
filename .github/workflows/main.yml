@@ -38,6 +38,7 @@ jobs:
           channels: conda-forge,nodefaults
           extra-specs: |
             python=${{ matrix.python-version }}
+            mamba
             tox-conda
             coverage
           cache-downloads: true
@@ -66,6 +67,7 @@ jobs:
           channels: conda-forge,nodefaults
           extra-specs: |
             python=3.11
+            mamba
             tox-conda
             coverage
           cache-downloads: true
