@@ -7,7 +7,7 @@ labels: "question"
 
 ---
 
-#### Question about pytask
+#### Question about {{ cookiecutter.project_slug }}
 
 **Note**: If you'd still like to submit a question, please read [this guide](
 https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) detailing how to
