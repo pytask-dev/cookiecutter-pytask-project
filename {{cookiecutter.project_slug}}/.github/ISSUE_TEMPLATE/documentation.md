@@ -1,7 +1,7 @@
 ---
 
 name: Documentation Improvement
-about: Report wrong or missing documentation
+about: Report wrong or missing documentation in {{ cookiecutter.project_name }}
 title: "DOC:"
 labels: "documentation"
 

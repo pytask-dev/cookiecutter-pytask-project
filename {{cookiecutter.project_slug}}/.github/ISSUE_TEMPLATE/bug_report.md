@@ -1,7 +1,7 @@
 ---
 
 name: Bug Report
-about: Create a bug report to help us improve {{ cookiecutter.project_slug }}
+about: Create a bug report to help us improve {{ cookiecutter.project_name }}
 title: "BUG:"
 labels: "bug"
 
@@ -10,10 +10,10 @@ labels: "bug"
 - [ ] I have checked that this issue has not already been reported.
 
 - [ ] I have confirmed this bug exists on the latest version of {{
-  cookiecutter.project_slug }}.
+  cookiecutter.project_name }}.
 
 - [ ] (optional) I have confirmed this bug exists on the `main` branch of {{
-  cookiecutter.project_slug }}.
+  cookiecutter.project_name }}.
 
 ---
 
