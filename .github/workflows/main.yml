@@ -39,7 +39,6 @@ jobs:
           extra-specs: |
             python=${{ matrix.python-version }}
             mamba
-            conda=22.9
             tox-conda
             coverage
           cache-downloads: true
@@ -69,9 +68,7 @@ jobs:
           extra-specs: |
             python=3.11
             mamba
-            conda=22.9
             tox-conda
-            coverage
           cache-downloads: true
 
       - name: Build docs
