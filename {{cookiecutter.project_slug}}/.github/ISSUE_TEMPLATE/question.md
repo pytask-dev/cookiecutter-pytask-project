@@ -1,13 +1,13 @@
 ---
 
 name: Submit Question
-about: Ask a general question about {{ cookiecutter.project_slug }}
+about: Ask a general question about {{ cookiecutter.project_name }}
 title: "QST:"
 labels: "question"
 
 ---
 
-#### Question about pytask
+#### Question about {{ cookiecutter.project_name }}
 
 **Note**: If you'd still like to submit a question, please read [this guide](
 https://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports) detailing how to

@@ -1,7 +1,7 @@
 ---
 
 name: Enhancement
-about: Suggest an idea for {{ cookiecutter.project_slug }}
+about: Suggest an idea for {{ cookiecutter.project_name }}
 title: "ENH:"
 labels: "enhancement"
 
@@ -10,7 +10,7 @@ labels: "enhancement"
 #### Is your feature request related to a problem?
 
 Provide a description of what the problem is, e.g. "I wish I could use
-{{ cookiecutter.project_slug }} to do [...]".
+{{ cookiecutter.project_name }} to do [...]".
 
 #### Describe the solution you'd like
 
