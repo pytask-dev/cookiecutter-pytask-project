@@ -40,7 +40,6 @@ jobs:
             python=${{ matrix.python-version }}
             mamba
             tox-conda
-            coverage
           cache-downloads: true
 
       - name: Run end-to-end tests.
