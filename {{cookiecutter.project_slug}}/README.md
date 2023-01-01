@@ -1,9 +1,9 @@
 # {{ cookiecutter.project_name }}
 
 {% if cookiecutter.add_github_actions == "yes"
-%}[![image](https://img.shields.io/github/workflow/status/{{
+%}[![image](https://img.shields.io/github/actions/workflow/status/{{
 cookiecutter.github_username }}/{{ cookiecutter.project_slug
-}}/main/main)](https://github.com/{{ cookiecutter.github_username }}/{{
+}}/main.yml?branch=main)](https://github.com/{{ cookiecutter.github_username }}/{{
 cookiecutter.project_slug }}/actions?query=branch%3Amain) {% endif %} {% if
 cookiecutter.add_readthedocs == "yes" %}[![image](https://readthedocs.org/projects/{{
 cookiecutter.project_slug | replace("_", "-") }}/badge/?version=stable)](https://{{
