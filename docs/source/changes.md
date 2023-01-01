@@ -3,6 +3,10 @@
 This is a record of all past cookiecutter-pytask-project releases and what went into
 them in reverse chronological order.
 
+## 1.4.0 - 2023-xx-xx
+
+- {pull}`29` adds ruff and refurb to pre-commits and fixes CI banner.
+
 ## 1.3.0 - 2022-11-20
 
 - {pull}`22` removes sphinx-click and renames docs environment to
