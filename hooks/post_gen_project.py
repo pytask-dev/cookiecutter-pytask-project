@@ -39,7 +39,9 @@ def main() -> None:
         remove_file(project_path, ".readthedocs.yaml")
 
     subprocess.run(
-        ("git", "init", "--initial-branch", "main"), check=True, capture_output=True
+        ("git", "init", "--initial-branch", "main"),
+        check=True,
+        capture_output=True,
     )
 
     if "{{ cookiecutter.make_initial_commit }}" == "yes":
@@ -81,7 +83,7 @@ def main() -> None:
         else:
             warnings.warn(
                 "conda environment could not be created since no conda or mamba "
-                "executable was found."
+                "executable was found.",
             )
 
 
