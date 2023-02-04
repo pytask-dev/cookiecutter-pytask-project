@@ -3,7 +3,12 @@
 This is a record of all past cookiecutter-pytask-project releases and what went into
 them in reverse chronological order.
 
-## 1.4.0 - 2023-xx-xx
+## 1.5.0 - 2023-02-04
+
+- {pull}`33` fixes some small things. (Thanks to @hmgaudecker!)
+- {pull}`34` adds dependabot to update Github Actions.
+
+## 1.4.0 - 2023-01-01
 
 - {pull}`29` adds ruff and refurb to pre-commits and fixes CI banner.
 

@@ -45,7 +45,7 @@ def main() -> None:
         raise ValueError(
             EXCEPTION_MSG_PYTHONVERSION.format(
                 min_python_version=PYTHONVERSION_MIN, python_version=python_version
-            )
+            ),
         )
 
 

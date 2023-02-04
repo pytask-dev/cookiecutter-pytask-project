@@ -26,7 +26,7 @@ repos:
         args: [--branch, main]
     -   id: trailing-whitespace
 -   repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.9.0
+    rev: v1.10.0
     hooks:
     -   id: python-check-blanket-noqa
     -   id: python-check-mock-methods
@@ -47,22 +47,17 @@ repos:
                 {{cookiecutter.project_slug}}/setup.cfg
             )$
 -   repo: https://github.com/psf/black
-    rev: 22.12.0
+    rev: 23.1.0
     hooks:
     -   id: black
--   repo: https://github.com/PyCQA/docformatter
-    rev: v1.5.1
-    hooks:
-    -   id: docformatter
-        args: [--in-place, --wrap-summaries, "88", --wrap-descriptions, "88", --blank]
 -   repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.205
+    rev: v0.0.241
     hooks:
       - id: ruff
         args: [hooks, tests]
         pass_filenames: false
 -   repo: https://github.com/dosisod/refurb
-    rev: v1.9.1
+    rev: v1.10.0
     hooks:
     -   id: refurb
         args: [--ignore, FURB126]

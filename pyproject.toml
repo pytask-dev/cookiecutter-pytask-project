@@ -52,11 +52,14 @@ extend-ignore = [
     "EM",  # flake8-errmsg
     "ANN401",  # flake8-annotate typing.Any
     "PD",  # pandas-vet
+    "COM812",  # trailing comma missing, but black takes care of that
 ]
 
 
 [tool.ruff.per-file-ignores]
 "tests/*" = ["D", "ANN"]
+"hooks/post_gen_project.py" = ["PLR0133"]
+"hooks/*" = ["INP001"]
 
 
 [tool.ruff.pydocstyle]

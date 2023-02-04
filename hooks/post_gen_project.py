@@ -60,7 +60,6 @@ def main() -> None:
         )
 
     if "{{ cookiecutter.create_conda_environment_at_finish }}" == "yes":
-
         if shutil.which("mamba") is not None:
             conda_exe = shutil.which("mamba")
         else:
