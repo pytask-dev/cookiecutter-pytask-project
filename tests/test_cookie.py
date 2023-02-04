@@ -108,7 +108,9 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
         # Switch branch before pre-commit because otherwise failure because on main
         # branch.
         subprocess.run(
-            ("git", "checkout", "-b", "test"), cwd=result.project_path, check=True,
+            ("git", "checkout", "-b", "test"),
+            cwd=result.project_path,
+            check=True,
         )
 
         # Check linting, but not on the first try since formatters fix stuff.
