@@ -50,26 +50,3 @@ jobs:
         if: runner.os == 'Linux' && matrix.python-version == '3.9'
         shell: bash -l {0}
         run: bash <(curl -s https://codecov.io/bash) -F end_to_end -c
-
-
-  docs:
-
-    name: Run documentation.
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: mamba-org/provision-with-micromamba@main
-        with:
-          environment-file: false
-          environment-name: gha-docs
-          channels: conda-forge,nodefaults
-          extra-specs: |
-            python=3.11
-            mamba
-            tox-conda
-          cache-downloads: true
-
-      - name: Build docs
-        shell: bash -l {0}
-        run: tox -e sphinx

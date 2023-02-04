@@ -11,7 +11,6 @@
   "add_github_actions": ["yes", "no"],
   "add_mypy": ["yes", "no"],
   "add_readthedocs": ["yes", "no"],
-  "add_codecov": ["yes", "no"],
   "open_source_license": [
     "MIT",
     "BSD",
