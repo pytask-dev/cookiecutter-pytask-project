@@ -8,8 +8,7 @@ cookiecutter.project_slug }}/actions?query=branch%3Amain) {% endif %} {% if
 cookiecutter.add_readthedocs == "yes" %}[![image](https://readthedocs.org/projects/{{
 cookiecutter.project_slug | replace("_", "-") }}/badge/?version=stable)](https://{{
 cookiecutter.project_slug | replace("_", "-") }}.readthedocs.io/en/stable/?badge=stable)
-{% endif %} {% if cookiecutter.add_codecov == "yes"
-%}[![image](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{
+[![image](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{
 cookiecutter.project_slug }}/branch/main/graph/badge.svg)](https://codecov.io/gh/{{
 cookiecutter.github_username }}/{{ cookiecutter.project_slug }}) {% endif %}
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/{{
