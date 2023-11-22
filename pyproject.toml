@@ -20,7 +20,7 @@ name = "Tobias Raabe"
 email = "raabe@posteo.de"
 
 [project.optional-dependencies]
-tests = ["pytest", "pytest-cookies", "pytest-cov", "pytest-xdist"]
+tests = ["pytest", "pytest-cookies", "pytest-cov"]
 docs = [
   "furo",
   "ipython",
@@ -95,6 +95,7 @@ extend-ignore = [
 
 
 [tool.ruff.per-file-ignores]
+"hooks/*" = ["INP001"]
 "tests/*" = ["D", "ANN", "S101", "S603"]
 "hooks/post_gen_project.py" = ["PLR0133", "S603"]
 

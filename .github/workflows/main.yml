@@ -40,7 +40,7 @@ jobs:
 
       - name: Run end-to-end tests.
         shell: bash -l {0}
-        run: tox -e pytest -- tests -m end_to_end --cov=./ --cov-report=xml -n auto
+        run: tox -e pytest -- tests -m end_to_end --cov=./ --cov-report=xml
 
       - name: Upload coverage reports of end-to-end tests.
         if: runner.os == 'Linux' && matrix.python-version == '3.10'
