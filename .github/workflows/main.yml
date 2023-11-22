@@ -38,11 +38,11 @@ jobs:
           allow-prereleases: true
       - run: pip install tox
 
-      - name: Run end-to-end tests.
+      - name: Run tests.
         shell: bash -l {0}
-        run: tox -e pytest -- tests -m end_to_end --cov=./ --cov-report=xml
+        run: tox -e pytest -- --cov=./ --cov-report=xml
 
-      - name: Upload coverage reports of end-to-end tests.
+      - name: Upload coverage reports of tests.
         if: runner.os == 'Linux' && matrix.python-version == '3.10'
         shell: bash -l {0}
-        run: bash <(curl -s https://codecov.io/bash) -F end_to_end -c
+        run: bash <(curl -s https://codecov.io/bash)
