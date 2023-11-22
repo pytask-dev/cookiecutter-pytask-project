@@ -27,20 +27,16 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        python-version: ['3.8', '3.9', '3.10', '3.11']
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: mamba-org/provision-with-micromamba@main
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
         with:
-          environment-file: false
-          environment-name: gha-testing
-          channels: conda-forge,nodefaults
-          extra-specs: |
-            python=${{ matrix.python-version }}
-            mamba
-            tox-conda
-          cache-downloads: true
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          allow-prereleases: true
+      - run: pip install tox
 
       - name: Run end-to-end tests.
         shell: bash -l {0}

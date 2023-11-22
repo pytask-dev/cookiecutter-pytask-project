@@ -34,48 +34,20 @@ repos:
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
     -   id: text-unicode-replacement-char
--   repo: https://github.com/asottile/reorder-python-imports
-    rev: v3.12.0
-    hooks:
-    -   id: reorder-python-imports
--   repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v2.5.0
-    hooks:
-    -   id: setup-cfg-fmt
-        exclude:  |
-            (?x)^(
-                {{cookiecutter.project_slug}}/setup.cfg
-            )$
--   repo: https://github.com/psf/black
-    rev: 23.11.0
-    hooks:
-    -   id: black
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.1.6
     hooks:
       - id: ruff
-        args: [hooks, tests]
+        args: [--config, pyproject.toml, hooks, tests]
         pass_filenames: false
+      - id: ruff-format
+        args: [--config, pyproject.toml]
 -   repo: https://github.com/dosisod/refurb
     rev: v1.24.0
     hooks:
     -   id: refurb
         args: [--ignore, FURB126]
         exclude: ({{cookiecutter.project_slug}})
--   repo: https://github.com/econchick/interrogate
-    rev: 1.5.0
-    hooks:
-    -   id: interrogate
-        args: [
-            -v,
-            --fail-under=40,
-            --config,
-            pyproject.toml,
-            "{{cookiecutter.project_slug}}",
-            --exclude,
-            "{{cookiecutter.project_slug}}/tests/test_import.py"
-        ]
-        pass_filenames: false
 -   repo: https://github.com/executablebooks/mdformat
     rev: 0.7.17
     hooks:
@@ -114,10 +86,6 @@ repos:
     rev: 'v1.7.0'
     hooks:
     -   id: mypy
-        args: [
-            --no-strict-optional,
-            --ignore-missing-imports,
-        ]
         pass_filenames: false
 -   repo: meta
     hooks:
