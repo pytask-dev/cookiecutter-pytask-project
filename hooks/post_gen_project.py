@@ -80,6 +80,30 @@ def main() -> None:
                 check=True,
                 capture_output=True,
             )
+            # Install pre-commit hooks and run them.
+            subprocess.run(  # noqa: PLW1510
+                (
+                    conda_exe,
+                    "run",
+                    "-n",
+                    "{{ cookiecutter.conda_environment_name }}",
+                    "pre-commit",
+                    "install",
+                ),
+                capture_output=True,
+            )
+            subprocess.run(  # noqa: PLW1510
+                (
+                    conda_exe,
+                    "run",
+                    "-n",
+                    "{{ cookiecutter.conda_environment_name }}",
+                    "pre-commit",
+                    "run",
+                    "--all-files",
+                ),
+                capture_output=True,
+            )
         else:
             warnings.warn(
                 "conda environment could not be created since no conda or mamba "
