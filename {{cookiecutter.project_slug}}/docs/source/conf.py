@@ -62,10 +62,10 @@ copybutton_prompt_is_regexp = True
 # Use these roles to create links to github users and pull requests.
 _repo = "https://github.com/{{ cookiecutter.github_username }}/" + project_slug
 extlinks = {
-    "pypi": ("https://pypi.org/project/%s/", ""),
-    "issue": (f"{_repo}/issues/%s", "issue #"),
-    "pull": (f"{_repo}/pull/%s", "pull request #"),
-    "user": ("https://github.com/%s", "@"),
+    "pypi": ("https://pypi.org/project/%s/", "%s"),
+    "issue": (f"{_repo}/issues/%s", "issue #%s"),
+    "pull": (f"{_repo}/pull/%s", "pull request #%s"),
+    "user": ("https://github.com/%s", "@%s"),
 }
 
 # Link objects to other documentations.
@@ -86,8 +86,3 @@ html_theme = "furo"
 
 pygments_style = "sphinx"
 pygments_dark_style = "monokai"
-
-# Add any paths that contain custom static files (such as style sheets) here, relative
-# to this directory. They are copied after the builtin static files, so a file named
-# "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
