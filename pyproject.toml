@@ -20,7 +20,6 @@ name = "Tobias Raabe"
 email = "raabe@posteo.de"
 
 [project.optional-dependencies]
-tests = ["pytest", "pytest-cookies", "pytest-cov"]
 docs = [
   "furo",
   "ipython",
@@ -33,6 +32,7 @@ docs = [
   "sphinx-toolbox",
   "sphinxext-opengraph",
 ]
+test = ["pytest", "pytest-cookies", "pytest-cov"]
 
 [project.readme]
 file = "README.md"
