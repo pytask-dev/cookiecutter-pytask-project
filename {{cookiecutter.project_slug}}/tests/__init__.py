@@ -1,1 +1,1 @@
-"""This module is necessary to configure mypy's behavior for the tests."""
+"""Is module is necessary to configure mypy's behavior for the tests."""

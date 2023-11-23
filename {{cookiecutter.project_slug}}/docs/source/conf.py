@@ -12,7 +12,8 @@ from importlib.metadata import version
 project = "{{ cookiecutter.project_name }}"
 project_slug = "{{ cookiecutter.project_slug }}"
 author = "{{ cookiecutter.author }}"
-copyright = f"2022, {author}"  # noqa: A001
+year = "{% now 'utc', '%Y' %}"
+copyright = f"{year}, {author}"  # noqa: A001
 
 # The version, including alpha/beta/rc tags, but not commit hash and datestamps
 release = version(project_slug)
