@@ -47,5 +47,4 @@ maxdepth: 1
 ---
 faq
 changes
-api
 ```

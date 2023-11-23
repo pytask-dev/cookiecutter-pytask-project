@@ -1,4 +1,4 @@
-"""This module contains hooks which are executed before the template is rendered."""
+"""Contains hooks which are executed before the template is rendered."""
 import re
 
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]*$"
@@ -36,7 +36,7 @@ def main() -> None:
 
     if not re.match(ENVIRON_REGEX, environment_name):
         raise ValueError(
-            EXCEPTION_MSG_ENVIRON_NAME.format(environment_name=environment_name)
+            EXCEPTION_MSG_ENVIRON_NAME.format(environment_name=environment_name),
         )
 
     python_version = "{{ cookiecutter.python_version }}"
@@ -44,7 +44,8 @@ def main() -> None:
     if not re.match(PYTHONVERSION_REGEX, python_version):
         raise ValueError(
             EXCEPTION_MSG_PYTHONVERSION.format(
-                min_python_version=PYTHONVERSION_MIN, python_version=python_version
+                min_python_version=PYTHONVERSION_MIN,
+                python_version=python_version,
             ),
         )
 

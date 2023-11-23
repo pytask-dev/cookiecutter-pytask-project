@@ -1,4 +1,4 @@
-"""This module contains hooks which are executed after the template is rendered."""
+"""Contains hooks which are executed after the template is rendered."""
 from __future__ import annotations
 
 import shutil
@@ -39,7 +39,9 @@ def main() -> None:
         remove_file(project_path, ".readthedocs.yaml")
 
     subprocess.run(
-        ("git", "init", "--initial-branch", "main"), check=True, capture_output=True
+        ("git", "init", "--initial-branch", "main"),
+        check=True,
+        capture_output=True,
     )
 
     if "{{ cookiecutter.make_initial_commit }}" == "yes":
@@ -78,10 +80,35 @@ def main() -> None:
                 check=True,
                 capture_output=True,
             )
+            # Install pre-commit hooks and run them.
+            subprocess.run(  # noqa: PLW1510
+                (
+                    conda_exe,
+                    "run",
+                    "-n",
+                    "{{ cookiecutter.conda_environment_name }}",
+                    "pre-commit",
+                    "install",
+                ),
+                capture_output=True,
+            )
+            subprocess.run(  # noqa: PLW1510
+                (
+                    conda_exe,
+                    "run",
+                    "-n",
+                    "{{ cookiecutter.conda_environment_name }}",
+                    "pre-commit",
+                    "run",
+                    "--all-files",
+                ),
+                capture_output=True,
+            )
         else:
             warnings.warn(
                 "conda environment could not be created since no conda or mamba "
-                "executable was found."
+                "executable was found.",
+                stacklevel=1,
             )
 
 

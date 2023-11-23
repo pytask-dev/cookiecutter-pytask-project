@@ -30,7 +30,6 @@ dependencies:
   - myst-parser
   - nbsphinx
   - sphinx
-  - sphinx-autoapi
   - sphinx-copybutton
   - sphinx-panels
 

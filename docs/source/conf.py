@@ -35,9 +35,8 @@ extensions = [
     "sphinxext.opengraph",
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
-    "sphinx_panels",
-    "autoapi.extension",
     "myst_parser",
+    "sphinx_design",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -48,12 +47,6 @@ templates_path = ["_templates"]
 # html_extra_path.
 exclude_patterns = ["build", "Thumbs.db", ".DS_Store", "**.ipynb_checkpoints"]
 
-# Configuration for autoapi to generate and API page.
-autoapi_type = "python"
-autoapi_dirs = ["../../hooks"]
-autoapi_keep_files = False
-autoapi_add_toctree_entry = False
-
 # Remove prefixed $ for bash, >>> for Python prompts, and In [1]: for IPython prompts.
 copybutton_prompt_text = r"\$ |>>> |In \[\d\]: "
 copybutton_prompt_is_regexp = True
@@ -61,10 +54,10 @@ copybutton_prompt_is_regexp = True
 # Use these roles to create links to github users and pull requests.
 _repo = "https://github.com/pytask-dev/cookiecutter-pytask-project"
 extlinks = {
-    "pypi": ("https://pypi.org/project/%s/", ""),
-    "issue": (f"{_repo}/issues/%s", "issue #"),
-    "pull": (f"{_repo}/pull/%s", "pull request #"),
-    "user": ("https://github.com/%s", "@"),
+    "pypi": ("https://pypi.org/project/%s/", "%s"),
+    "issue": (f"{_repo}/issues/%s", "issue #%s"),
+    "pull": (f"{_repo}/pull/%s", "pull request #%s"),
+    "user": ("https://github.com/%s", "@%s"),
 }
 
 # Link objects to other documentations.
@@ -85,8 +78,3 @@ html_theme = "furo"
 
 pygments_style = "sphinx"
 pygments_dark_style = "monokai"
-
-# Add any paths that contain custom static files (such as style sheets) here, relative
-# to this directory. They are copied after the builtin static files, so a file named
-# "default.css" will overwrite the builtin "default.css".
-html_static_path = ["_static"]
