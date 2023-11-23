@@ -3,6 +3,10 @@
 This is a record of all past cookiecutter-pytask-project releases and what went into
 them in reverse chronological order.
 
+## 1.6.0 - 2023-11-23
+
+- {pull}`35` modernizes the template.
+
 ## 1.5.0 - 2023-02-04
 
 - {pull}`33` fixes some small things. (Thanks to @hmgaudecker!)
