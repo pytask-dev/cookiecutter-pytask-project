@@ -37,7 +37,6 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx_copybutton",
     "sphinx_panels",
-    "autoapi.extension",
     "myst_parser",
 ]
 
@@ -48,12 +47,6 @@ templates_path = ["_templates"]
 # ignore when looking for source files. This pattern also affects html_static_path and
 # html_extra_path.
 exclude_patterns = ["build", "Thumbs.db", ".DS_Store", "**.ipynb_checkpoints"]
-
-# Configuration for autoapi to generate and API page.
-autoapi_type = "python"
-autoapi_dirs = ["../../src"]
-autoapi_keep_files = False
-autoapi_add_toctree_entry = False
 
 # Remove prefixed $ for bash, >>> for Python prompts, and In [1]: for IPython prompts.
 copybutton_prompt_text = r"\$ |>>> |In \[\d\]: "
