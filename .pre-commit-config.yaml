@@ -34,6 +34,10 @@ repos:
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
     -   id: text-unicode-replacement-char
+-   repo: https://github.com/asottile/reorder_python_imports
+    rev: v3.9.0
+    hooks:
+    -   id: reorder-python-imports
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.1.6
     hooks:

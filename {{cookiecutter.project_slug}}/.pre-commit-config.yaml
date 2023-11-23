@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
     -   id: check-added-large-files
         args: ['--maxkb=25']
@@ -16,7 +16,7 @@ repos:
         args: [--branch, main]
     -   id: trailing-whitespace
 -   repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.9.0
+    rev: v1.10.0
     hooks:
     -   id: python-check-blanket-noqa
     -   id: python-check-mock-methods
@@ -24,46 +24,27 @@ repos:
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
     -   id: text-unicode-replacement-char
--   repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.1
-    hooks:
-    -   id: pyupgrade
-        args: [--py37-plus]
 -   repo: https://github.com/asottile/reorder_python_imports
     rev: v3.9.0
     hooks:
     -   id: reorder-python-imports{% if cookiecutter.add_mypy == "yes" %}
-        args: [--py37-plus, --add-import, 'from __future__ import annotations']{% endif %}
+        args: [--py38-plus, --add-import, 'from __future__ import annotations']{% endif %}
 -   repo: https://github.com/asottile/setup-cfg-fmt
     rev: v2.2.0
     hooks:
     -   id: setup-cfg-fmt
--   repo: https://github.com/psf/black
-    rev: 23.1.0
-    hooks:
-    -   id: black
--   repo: https://github.com/PyCQA/docformatter
-    rev: v1.5.1
-    hooks:
-    -   id: docformatter
-        args: [--in-place, --wrap-summaries, "88", --wrap-descriptions, "88", --blank]
-{% if cookiecutter.python_version in ["3.10", "3.11", "3.12"] %}-   repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.241
+-   repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.1.6
     hooks:
       - id: ruff
--   repo: https://github.com/dosisod/refurb
-    rev: v1.10.0
+      - id: ruff-format
+{% if cookiecutter.python_version in ["3.10", "3.11", "3.12"] %}-   repo: https://github.com/dosisod/refurb
+    rev: v1.24.0
     hooks:
     -   id: refurb
-        args: [--ignore, FURB126]
 {% endif %}
--   repo: https://github.com/econchick/interrogate
-    rev: 1.5.0
-    hooks:
-    -   id: interrogate
-        args: [-v, --fail-under=40]
 -   repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.16
+    rev: 0.7.17
     hooks:
     -   id: mdformat
         additional_dependencies: [
@@ -73,7 +54,7 @@ repos:
         args: [--wrap, "88"]
         files: (README\.md)
 -   repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.16
+    rev: 0.7.17
     hooks:
     -   id: mdformat
         additional_dependencies: [
@@ -88,7 +69,7 @@ repos:
         #         path/to/file.py
         #     )$
 {% if cookiecutter.add_mypy == "yes" %}-   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v0.991'
+    rev: 'v1.7.0'
     hooks:
     -   id: mypy
         args: [
@@ -97,7 +78,7 @@ repos:
         ]
         pass_filenames: false
 {% endif %}-   repo: https://github.com/codespell-project/codespell
-    rev: v2.2.2
+    rev: v2.2.6
     hooks:
     -   id: codespell
 -   repo: meta
