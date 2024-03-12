@@ -24,11 +24,6 @@ repos:
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
     -   id: text-unicode-replacement-char
--   repo: https://github.com/asottile/reorder_python_imports
-    rev: v3.9.0
-    hooks:
-    -   id: reorder-python-imports{% if cookiecutter.add_mypy == "yes" %}
-        args: [--py38-plus, --add-import, 'from __future__ import annotations']{% endif %}
 -   repo: https://github.com/asottile/setup-cfg-fmt
     rev: v2.2.0
     hooks:
@@ -67,11 +62,6 @@ repos:
         ]
         args: [--wrap, "88"]
         files: (docs/.)
-        # Exclude files with admonitions.
-        # exclude: |
-        #     (?x)^(
-        #         path/to/file.py
-        #     )$
 {% if cookiecutter.add_mypy == "yes" %}-   repo: https://github.com/pre-commit/mirrors-mypy
     rev: 'v1.7.0'
     hooks:
