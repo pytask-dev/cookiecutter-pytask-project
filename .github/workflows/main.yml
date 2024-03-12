@@ -5,9 +5,6 @@ concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
-env:
-  CONDA_EXE: mamba
-
 on:
   push:
     branches:
@@ -43,6 +40,4 @@ jobs:
         run: tox -e test -- --cov=./ --cov-report=xml
 
       - name: Upload coverage reports of tests.
-        if: runner.os == 'Linux' && matrix.python-version == '3.10'
-        shell: bash -l {0}
-        run: bash <(curl -s https://codecov.io/bash)
+        uses: codecov/codecov-action@v4

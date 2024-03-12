@@ -6,6 +6,7 @@ them in reverse chronological order.
 ## 1.7.0 - 2024-xx-xx
 
 - {pull}`39` updates the pre-commit hooks.
+- {pull}`41` updates the infrastructure.
 
 ## 1.6.0 - 2023-11-23
 

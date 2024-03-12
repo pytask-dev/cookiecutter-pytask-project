@@ -14,7 +14,7 @@ dependencies:
   - conda-lock
 
   # Package dependencies
-  - pytask >=0.2
+  - pytask >=0.4
 
   # Misc
   - black
@@ -34,5 +34,5 @@ dependencies:
   - sphinx-panels
 
   - pip:
-    - -e .
     - sphinxext-opengraph
+    - -e .

@@ -15,14 +15,14 @@ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}) {% endif %}
 cookiecutter.github_username }}/{{ cookiecutter.project_slug
 }}/main.svg)](https://results.pre-commit.ci/latest/github/{{
 cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/main)
-[![image](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
 ## Usage
 
 To get started, create the environment with
 
 ```console
-$ conda/mamba env create
+$ mamba env create
 ```
 
 To build the project, type
