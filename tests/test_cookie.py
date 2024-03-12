@@ -4,7 +4,6 @@ import sys
 
 import pytest
 
-
 _PYTHON_VERSION = ".".join(map(str, sys.version_info[:2]))
 
 
