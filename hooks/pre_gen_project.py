@@ -1,4 +1,5 @@
 """Contains hooks which are executed before the template is rendered."""
+
 import re
 
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]*$"
