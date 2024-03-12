@@ -24,10 +24,6 @@ repos:
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
     -   id: text-unicode-replacement-char
--   repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v2.2.0
-    hooks:
-    -   id: setup-cfg-fmt
 -   repo: https://github.com/aio-libs/sort-all
     rev: v1.2.0
     hooks:

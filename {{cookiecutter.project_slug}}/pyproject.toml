@@ -4,6 +4,66 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.0"]
 [tool.setuptools_scm]
 write_to = "src/{{ cookiecutter.project_slug }}/_version.py"
 
+[project]
+name = "{{ cookiecutter.project_slug }}"
+description = "{{ cookiecutter.project_description }}"
+requires-python = ">=3.8"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: {{ cookiecutter.open_source_license }} License",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dynamic = ["version"]
+dependencies = ["pytask"]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.license]
+text = "{{ cookiecutter.open_source_license }}"
+
+[[project.authors]]
+name = "{{ cookiecutter.author }}"
+email = "{{ cookiecutter.email }}"
+
+[project.optional-dependencies]
+docs = [
+  "furo",
+  "ipython",
+  "myst-parser",
+  "nbsphinx",
+  "sphinx",
+  "sphinx-copybutton",
+  "sphinx-design>=0.3",
+  "sphinx-toolbox",
+  "sphinxext-opengraph",
+]
+test = []
+
+[project.urls]
+Changelog = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+Documentation = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+Github = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+Tracker = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
+
+[tool.setuptools]
+include-package-data = true
+zip-safe = false
+platforms = ["unix", "linux", "osx", "win32"]
+license-files = ["LICENSE"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
+
 {% if cookiecutter.add_mypy == "yes" %}[tool.mypy]
 files = ["src", "tests"]
 check_untyped_defs = true
