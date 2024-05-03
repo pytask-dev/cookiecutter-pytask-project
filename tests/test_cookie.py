@@ -132,6 +132,4 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
         subprocess.run(("pixi", "run", "test"), cwd=result.project_path, check=True)
 
         # Test building documentation
-        subprocess.run(
-            ("pixi", "run", "docs"), cwd=result.project_path, check=True
-        )
+        subprocess.run(("pixi", "run", "docs"), cwd=result.project_path, check=True)
