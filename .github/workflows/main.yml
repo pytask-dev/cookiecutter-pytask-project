@@ -37,6 +37,7 @@ jobs:
         with:
           pixi-version: v0.20.1
           cache: true
+          run-install: false
 
       - run: pip install tox-uv
 
