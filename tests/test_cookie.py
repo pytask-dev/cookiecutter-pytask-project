@@ -89,14 +89,12 @@ def test_remove_license(cookies):
 
 @pytest.mark.end_to_end()
 @pytest.mark.skipif(os.environ.get("CI") is None, reason="Run only in CI.")
-def test_check_conda_environment_creation_and_run_all_checks(cookies):
-    """Test that the conda environment is created and pre-commit passes."""
+def test_check_pixi_and_run_all_checks(cookies):
+    """Test pixi and pre-commit passes."""
     result = cookies.bake(
         extra_context={
-            "conda_environment_name": "__test__",
             "make_initial_commit": "yes",
-            "create_conda_environment_at_finish": "yes",
-            "python_version": _PYTHON_VERSION,
+            "python_version": _PYTHON_VERSION
         },
     )
 

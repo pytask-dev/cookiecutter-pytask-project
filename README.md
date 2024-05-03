@@ -27,9 +27,7 @@ cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
 
 ## Documentation
 
-You find the documentation at <https://cookiecutter-pytask-project.readthedocs.io> with
-a
-[quickstart guide](https://cookiecutter-pytask-project.readthedocs.io/en/latest/quickstart.html).
+You find the documentation at <https://cookiecutter-pytask-project.readthedocs.io>.
 
 ## Changes
 
