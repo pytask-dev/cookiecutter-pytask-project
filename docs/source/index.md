@@ -15,7 +15,7 @@ This repository contains a minimal cookiecutter template for a project with
 The template uses [pixi](https://pixi.sh/) as the package and environment manager which
 is the successor of conda/mamba/micromamba. Please, install it.
 
-```{info}
+```{note}
 Of course, the template can be used with any other package manager. But, we recommend
 pixi which can install packages from conda, PyPI, etc.. or [rye](https://rye-up.com/)
 for PyPI-only projects.
