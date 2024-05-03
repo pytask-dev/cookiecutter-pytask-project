@@ -28,7 +28,7 @@ cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
 
 ## Features
 
-TODO!!!
+- [pixi](https://pixi.sh/latest/) as the environment and package manager.
 
 ## FAQ
 

@@ -111,8 +111,8 @@ test = { features = ["test"], solve-group = "default" }
 
 [tool.pixi.tasks]
 
-[tool.pixi.features.test.tasks]
+[tool.pixi.feature.test.tasks]
 test = "pytest --cov src --cov tests"
 
-[tool.pixi.features.docs.tasks]
+[tool.pixi.feature.docs.tasks]
 docs = "sphinx-build -b html docs/source docs/build"
