@@ -93,3 +93,26 @@ convention = "numpy"
 addopts = ["--doctest-modules"]
 testpaths = ["src", "tests"]
 norecursedirs = [".idea", ".tox"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["linux-64"]
+
+[tool.pixi.dependencies]
+pytask = ">=0.4.7,<0.5"
+
+[tool.pixi.pypi-dependencies]
+reproducible_research_template = { path = ".", editable = true }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+docs = { features = ["docs"], solve-group = "default" }
+test = { features = ["test"], solve-group = "default" }
+
+[tool.pixi.tasks]
+
+[tool.pixi.features.test.tasks]
+test = "pytest --cov src --cov tests"
+
+[tool.pixi.features.docs.tasks]
+docs = "sphinx-build -b html docs/source docs/build"
