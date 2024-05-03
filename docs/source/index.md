@@ -10,26 +10,47 @@
 This repository contains a minimal cookiecutter template for a project with
 [pytask](https://github.com/pytask-dev/pytask).
 
-## Usage
+## Installation
 
-First, install cookiecutter with the package manager of your choice.
+The template uses [pixi](https://pixi.sh/) as the package and environment manager which
+is the successor of conda/mamba/micromamba. Please, install it.
+
+```{info}
+Of course, the template can be used with any other package manager. But, we recommend
+pixi which can install packages from conda, PyPI, etc.. or [rye](https://rye-up.com/)
+for PyPI-only projects.
+```
+
+Then, install cookiecutter.
 
 ```console
-pip install cookiecutter
-conda install -c conda-forge cookiecutter
 pixi global install cookiecutter
 ```
 
-Then, set up the template with
+Now, set up the template with
 
 ```console
-cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
 pixi run cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
+```
+
+Many formatting issues exist after the project is created. Run pre-commit to polish the
+template.
+
+```console
+pixi global install pre-commit
+pixi run pre-commit run -a
 ```
 
 ## Features
 
+Here is a feature list of the template.
+
 - [pixi](https://pixi.sh/latest/) as the environment and package manager.
+- Supports pre-commit and some popular hooks like ruff and refurb.
+- Initialized documentation in `docs`.
+- Preconfigured GitHub actions and dependabot.
+- Preconfigured readthedocs.
+- Preconfigured CodeCov.
 
 ## FAQ
 

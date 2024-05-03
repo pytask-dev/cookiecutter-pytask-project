@@ -10,21 +10,6 @@
 This repository contains a minimal cookiecutter template for a project with
 [pytask](https://github.com/pytask-dev/pytask).
 
-## Usage
-
-First, install cookiecutter.
-
-```console
-pip install cookiecutter
-conda install -c conda-forge cookiecutter
-```
-
-Then, set up the template with
-
-```console
-cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
-```
-
 ## Documentation
 
 You find the documentation at <https://cookiecutter-pytask-project.readthedocs.io>.
