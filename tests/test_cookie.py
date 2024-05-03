@@ -98,35 +98,34 @@ def test_check_pixi_and_run_all_checks(cookies):
     assert result.exit_code == 0
     assert result.exception is None
 
-    if sys.platform != "win32":
-        # Switch branch before pre-commit because otherwise failure because on main
-        # branch.
-        subprocess.run(
-            ("git", "checkout", "-b", "test"),
-            cwd=result.project_path,
-            check=True,
-        )
+    # Switch branch before pre-commit because otherwise failure because on main
+    # branch.
+    subprocess.run(
+        ("git", "checkout", "-b", "test"),
+        cwd=result.project_path,
+        check=True,
+    )
 
-        # Install pre-commit.
-        subprocess.run(
-            ("pixi", "global", "install", "pre-commit"),
-            cwd=result.project_path,
-            check=True,
-        )
-        # Check linting, but not on the first try since formatters fix stuff.
-        subprocess.run(
-            ("pixi", "run", "pre-commit", "run", "--all-files"),
-            cwd=result.project_path,
-            check=False,
-        )
-        subprocess.run(
-            ("pixi", "run", "pre-commit", "run", "--all-files"),
-            cwd=result.project_path,
-            check=True,
-        )
+    # Install pre-commit.
+    subprocess.run(
+        ("pixi", "global", "install", "pre-commit"),
+        cwd=result.project_path,
+        check=True,
+    )
+    # Check linting, but not on the first try since formatters fix stuff.
+    subprocess.run(
+        ("pixi", "run", "pre-commit", "run", "--all-files"),
+        cwd=result.project_path,
+        check=False,
+    )
+    subprocess.run(
+        ("pixi", "run", "pre-commit", "run", "--all-files"),
+        cwd=result.project_path,
+        check=True,
+    )
 
-        # Run tests.
-        subprocess.run(("pixi", "run", "test"), cwd=result.project_path, check=True)
+    # Run tests.
+    subprocess.run(("pixi", "run", "test"), cwd=result.project_path, check=True)
 
-        # Test building documentation
-        subprocess.run(("pixi", "run", "docs"), cwd=result.project_path, check=True)
+    # Test building documentation
+    subprocess.run(("pixi", "run", "docs"), cwd=result.project_path, check=True)
