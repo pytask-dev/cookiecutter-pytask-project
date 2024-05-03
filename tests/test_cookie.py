@@ -109,7 +109,9 @@ def test_check_pixi_and_run_all_checks(cookies):
 
         # Install pre-commit.
         subprocess.run(
-            ("pixi", "global", "install", "pre-commit"), cwd=result.project_path, check=True
+            ("pixi", "global", "install", "pre-commit"),
+            cwd=result.project_path,
+            check=True,
         )
         # Check linting, but not on the first try since formatters fix stuff.
         subprocess.run(
