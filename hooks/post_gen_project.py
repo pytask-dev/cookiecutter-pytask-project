@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import shutil
 import subprocess
-import warnings
 from contextlib import suppress
 from pathlib import Path
 

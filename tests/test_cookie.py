@@ -92,10 +92,7 @@ def test_remove_license(cookies):
 def test_check_pixi_and_run_all_checks(cookies):
     """Test pixi and pre-commit passes."""
     result = cookies.bake(
-        extra_context={
-            "make_initial_commit": "yes",
-            "python_version": _PYTHON_VERSION
-        },
+        extra_context={"make_initial_commit": "yes", "python_version": _PYTHON_VERSION},
     )
 
     assert result.exit_code == 0
