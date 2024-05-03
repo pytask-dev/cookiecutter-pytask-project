@@ -113,12 +113,12 @@ def test_check_pixi_and_run_all_checks(cookies):
         )
         # Check linting, but not on the first try since formatters fix stuff.
         subprocess.run(
-            ("pixi", "run", "pre-commit", "--all-files"),
+            ("pixi", "run", "pre-commit", "run", "--all-files"),
             cwd=result.project_path,
             check=False,
         )
         subprocess.run(
-            ("pixi", "run", "pre-commit", "--all-files"),
+            ("pixi", "run", "pre-commit", "run", "--all-files"),
             cwd=result.project_path,
             check=True,
         )

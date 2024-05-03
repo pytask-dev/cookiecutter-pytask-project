@@ -12,18 +12,19 @@ This repository contains a minimal cookiecutter template for a project with
 
 ## Usage
 
-First, install cookiecutter.
+First, install cookiecutter with the package manager of your choice.
 
 ```console
 pip install cookiecutter
-
 conda install -c conda-forge cookiecutter
+pixi global install cookiecutter
 ```
 
 Then, set up the template with
 
 ```console
 cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
+pixi run cookiecutter https://github.com/pytask-dev/cookiecutter-pytask-project
 ```
 
 ## Features
