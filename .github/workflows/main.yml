@@ -33,6 +33,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
           allow-prereleases: true
+      - uses: prefix-dev/setup-pixi@v0.6.0
+        with:
+          pixi-version: v0.20.1
+          cache: true
+
       - run: pip install tox-uv
 
       - name: Run tests.
