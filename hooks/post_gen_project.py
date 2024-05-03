@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import shutil
 import subprocess
-import warnings
 from contextlib import suppress
 from pathlib import Path
 
@@ -61,56 +60,6 @@ def main() -> None:
             check=True,
             capture_output=True,
         )
-
-    if "{{ cookiecutter.create_conda_environment_at_finish }}" == "yes":
-        if shutil.which("mamba") is not None:
-            conda_exe = shutil.which("mamba")
-        else:
-            conda_exe = shutil.which("conda")
-
-        if conda_exe:
-            subprocess.run(
-                (
-                    conda_exe,
-                    "env",
-                    "create",
-                    "-f",
-                    (project_path / "environment.yml").absolute().as_posix(),
-                    "--force",
-                ),
-                check=True,
-                capture_output=True,
-            )
-            # Install pre-commit hooks and run them.
-            subprocess.run(  # noqa: PLW1510
-                (
-                    conda_exe,
-                    "run",
-                    "-n",
-                    "{{ cookiecutter.conda_environment_name }}",
-                    "pre-commit",
-                    "install",
-                ),
-                capture_output=True,
-            )
-            subprocess.run(  # noqa: PLW1510
-                (
-                    conda_exe,
-                    "run",
-                    "-n",
-                    "{{ cookiecutter.conda_environment_name }}",
-                    "pre-commit",
-                    "run",
-                    "--all-files",
-                ),
-                capture_output=True,
-            )
-        else:
-            warnings.warn(
-                "conda environment could not be created since no conda or mamba "
-                "executable was found.",
-                stacklevel=1,
-            )
 
 
 if __name__ == "__main__":

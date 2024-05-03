@@ -89,58 +89,43 @@ def test_remove_license(cookies):
 
 @pytest.mark.end_to_end()
 @pytest.mark.skipif(os.environ.get("CI") is None, reason="Run only in CI.")
-def test_check_conda_environment_creation_and_run_all_checks(cookies):
-    """Test that the conda environment is created and pre-commit passes."""
+def test_check_pixi_and_run_all_checks(cookies):
+    """Test pixi and pre-commit passes."""
     result = cookies.bake(
-        extra_context={
-            "conda_environment_name": "__test__",
-            "make_initial_commit": "yes",
-            "create_conda_environment_at_finish": "yes",
-            "python_version": _PYTHON_VERSION,
-        },
+        extra_context={"make_initial_commit": "yes", "python_version": _PYTHON_VERSION},
     )
 
     assert result.exit_code == 0
     assert result.exception is None
 
-    if sys.platform != "win32":
-        # Switch branch before pre-commit because otherwise failure because on main
-        # branch.
-        subprocess.run(
-            ("git", "checkout", "-b", "test"),
-            cwd=result.project_path,
-            check=True,
-        )
+    # Switch branch before pre-commit because otherwise failure because on main
+    # branch.
+    subprocess.run(
+        ("git", "checkout", "-b", "test"),
+        cwd=result.project_path,
+        check=True,
+    )
 
-        # Check linting, but not on the first try since formatters fix stuff.
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
-            cwd=result.project_path,
-            check=False,
-        )
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
-            cwd=result.project_path,
-            check=True,
-        )
+    # Install pre-commit.
+    subprocess.run(
+        ("pixi", "global", "install", "pre-commit"),
+        cwd=result.project_path,
+        check=True,
+    )
+    # Check linting, but not on the first try since formatters fix stuff.
+    subprocess.run(
+        ("pixi", "run", "pre-commit", "run", "--all-files"),
+        cwd=result.project_path,
+        check=False,
+    )
+    subprocess.run(
+        ("pixi", "run", "pre-commit", "run", "--all-files"),
+        cwd=result.project_path,
+        check=True,
+    )
 
-        # Install package.
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "pip", "install", "-e", "."),
-            cwd=result.project_path,
-            check=True,
-        )
+    # Run tests.
+    subprocess.run(("pixi", "run", "test"), cwd=result.project_path, check=True)
 
-        # Run tests.
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "pytest"),
-            cwd=result.project_path,
-            check=True,
-        )
-
-        # Test building documentation
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "make", "html"),
-            cwd=result.project_path / "docs",
-            check=True,
-        )
+    # Test building documentation
+    subprocess.run(("pixi", "run", "docs"), cwd=result.project_path, check=True)

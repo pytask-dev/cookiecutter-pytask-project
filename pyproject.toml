@@ -1,16 +1,21 @@
-[build-system]
-requires = ["setuptools", "wheel", "setuptools_scm[toml]"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools_scm]
-write_to = "version.py"
-
 [project]
 name = "cookiecutter_pytask_project"
+version = "1.7.0"
 description = "A minimal cookiecutter template for a project with pytask."
-classifiers = [ "Development Status :: 3 - Alpha", "Environment :: Console", "Intended Audience :: Science/Research", "License :: OSI Approved :: MIT License", "Operating System :: MacOS :: MacOS X", "Operating System :: Microsoft :: Windows", "Operating System :: POSIX", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3 :: Only", "Topic :: Scientific/Engineering", "Topic :: Software Development :: Build Tools",]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Build Tools",
+]
 requires-python = ">=3.8"
-dynamic = ["version"]
 dependencies = ["cookiecutter"]
 
 [[project.authors]]
@@ -19,16 +24,16 @@ email = "raabe@posteo.de"
 
 [project.optional-dependencies]
 docs = [
-  "furo",
-  "ipython",
-  "myst-parser",
-  "nbsphinx",
-  "sphinx",
-  "sphinx-click",
-  "sphinx-copybutton",
-  "sphinx-design>=0.3",
-  "sphinx-toolbox",
-  "sphinxext-opengraph",
+    "furo",
+    "ipython",
+    "myst-parser",
+    "nbsphinx",
+    "sphinx",
+    "sphinx-click",
+    "sphinx-copybutton",
+    "sphinx-design>=0.3",
+    "sphinx-toolbox",
+    "sphinxext-opengraph",
 ]
 test = ["pytest", "pytest-cookies", "pytest-cov"]
 
@@ -46,10 +51,12 @@ Documentation = "https://cookiecutter-pytask-project.readthedocs.io/en/latest"
 Github = "https://github.com/pytask-dev/cookiecutter-pytask-project"
 Tracker = "https://github.com/pytask-dev/cookiecutter-pytask-project/issues"
 
-[tool.setuptools]
-platforms = [ "unix", "linux", "osx", "cygwin", "win32",]
-license-files = [ "LICENSE"]
-include-package-data = false
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = [
+    "tox-uv>=1.8.2",
+]
 
 [tool.mypy]
 files = ["hooks", "tests"]
@@ -74,9 +81,8 @@ unsafe-fixes = true
 
 [tool.ruff.lint]
 extend-ignore = [
-    # Others.
-    "COM812",  # Comply with ruff-format.
-    "ISC001",  # Comply with ruff-format.
+    "COM812", # Comply with ruff-format.
+    "ISC001", # Comply with ruff-format.
 ]
 select = ["ALL"]
 

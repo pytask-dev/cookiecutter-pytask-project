@@ -1,23 +1,21 @@
 [build-system]
-requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.0"]
-
-[tool.setuptools_scm]
-write_to = "src/{{ cookiecutter.project_slug }}/_version.py"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "{{ cookiecutter.project_slug }}"
+version = "0.1.0"
 description = "{{ cookiecutter.project_description }}"
 requires-python = ">=3.8"
 classifiers = [
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: {{ cookiecutter.open_source_license }} License",
-    "Operating System :: MacOS :: MacOS X",
-    "Operating System :: Microsoft :: Windows",
-    "Operating System :: POSIX",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3 :: Only",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: {{ cookiecutter.open_source_license }} License",
+  "Operating System :: MacOS :: MacOS X",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
 ]
-dynamic = ["version"]
 dependencies = ["pytask"]
 
 [project.readme]
@@ -43,26 +41,13 @@ docs = [
   "sphinx-toolbox",
   "sphinxext-opengraph",
 ]
-test = []
+test = ["pytest", "pytest-cov", "pytest-xdist"]
 
 [project.urls]
 Changelog = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 Documentation = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 Github = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 Tracker = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
-
-[tool.setuptools]
-include-package-data = true
-zip-safe = false
-platforms = ["unix", "linux", "osx", "win32"]
-license-files = ["LICENSE"]
-
-[tool.setuptools.package-dir]
-"" = "src"
-
-[tool.setuptools.packages.find]
-where = ["src"]
-namespaces = false
 
 {% if cookiecutter.add_mypy == "yes" %}[tool.mypy]
 files = ["src", "tests"]
@@ -75,10 +60,10 @@ warn_redundant_casts = true
 warn_unused_ignores = true
 
 [[tool.mypy.overrides]]
+ignore_errors = true
 module = "tests.*"
 disallow_untyped_defs = false
-ignore_errors = true{% endif %}
-
+{% endif %}
 [tool.pytask.ini_options]
 paths = ["src/{{ cookiecutter.project_slug }}"]
 
@@ -89,8 +74,8 @@ unsafe-fixes = true
 
 [tool.ruff.lint]
 extend-ignore = [
-    "COM812",  # Comply with ruff-format.
-    "ISC001",  # Comply with ruff-format.
+  "COM812", # Comply with ruff-format.
+  "ISC001", # Comply with ruff-format.
 ]
 select = ["ALL"]
 
@@ -108,3 +93,26 @@ convention = "numpy"
 addopts = ["--doctest-modules"]
 testpaths = ["src", "tests"]
 norecursedirs = [".idea", ".tox"]
+
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[tool.pixi.dependencies]
+pytask = ">=0.4.7,<0.5"
+
+[tool.pixi.pypi-dependencies]
+{{ cookiecutter.project_slug }} = { path = ".", editable = true }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+docs = { features = ["docs"], solve-group = "default" }
+test = { features = ["test"], solve-group = "default" }
+
+[tool.pixi.tasks]
+
+[tool.pixi.feature.test.tasks]
+test = "pytest --cov src --cov tests"
+
+[tool.pixi.feature.docs.tasks]
+docs = "sphinx-build -b html docs/source docs/build"
