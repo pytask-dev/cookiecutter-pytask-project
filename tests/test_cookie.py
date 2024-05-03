@@ -112,35 +112,26 @@ def test_check_conda_environment_creation_and_run_all_checks(cookies):
             check=True,
         )
 
+        # Install pre-commit.
+        subprocess.run(
+            ("pixi", "install", "pre-commit"), cwd=result.project_path, check=True
+        )
         # Check linting, but not on the first try since formatters fix stuff.
         subprocess.run(
-            ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
+            ("pixi", "run", "pre-commit", "--all-files"),
             cwd=result.project_path,
             check=False,
         )
         subprocess.run(
-            ("conda", "run", "-n", "__test__", "pre-commit", "run", "--all-files"),
-            cwd=result.project_path,
-            check=True,
-        )
-
-        # Install package.
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "pip", "install", "-e", "."),
+            ("pixi", "run", "pre-commit", "--all-files"),
             cwd=result.project_path,
             check=True,
         )
 
         # Run tests.
-        subprocess.run(
-            ("conda", "run", "-n", "__test__", "pytest"),
-            cwd=result.project_path,
-            check=True,
-        )
+        subprocess.run(("pixi", "run", "test"), cwd=result.project_path, check=True)
 
         # Test building documentation
         subprocess.run(
-            ("conda", "run", "-n", "__test__", "make", "html"),
-            cwd=result.project_path / "docs",
-            check=True,
+            ("pixi", "run", "docs"), cwd=result.project_path, check=True
         )
