@@ -4,7 +4,7 @@ import re
 
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]*$"
 ENVIRON_REGEX = r"^[-_a-zA-Z0-9]*$"
-PYTHONVERSION_REGEX = r"^(3\.(1[0-9]|[7-9])(\.[0-9]{1,2})?)$"
+PYTHONVERSION_REGEX = r"^(3\.(1[0-9]|[8-9])(\.[0-9]{1,2})?)$"
 PYTHONVERSION_MIN = "3.8"
 
 EXCEPTION_MSG_MODULE_NAME = """
@@ -32,13 +32,6 @@ def main() -> None:
 
     if not re.match(MODULE_REGEX, module_name):
         raise ValueError(EXCEPTION_MSG_MODULE_NAME.format(module_name=module_name))
-
-    environment_name = "{{ cookiecutter.conda_environment_name }}"
-
-    if not re.match(ENVIRON_REGEX, environment_name):
-        raise ValueError(
-            EXCEPTION_MSG_ENVIRON_NAME.format(environment_name=environment_name),
-        )
 
     python_version = "{{ cookiecutter.python_version }}"
 

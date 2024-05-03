@@ -17,18 +17,16 @@ cookiecutter.github_username }}/{{ cookiecutter.project_slug
 cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/main)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
+## Installation
+
+To work with the project, you should have [pixi](https://pixi.sh/latest/) installed.
+
 ## Usage
-
-To get started, create the environment with
-
-```console
-$ mamba env create
-```
 
 To build the project, type
 
 ```console
-$ pytask
+pixi run pytask
 ```
 
 ## Credits
