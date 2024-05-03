@@ -102,7 +102,7 @@ platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
 pytask = ">=0.4.7,<0.5"
 
 [tool.pixi.pypi-dependencies]
-reproducible_research_template = { path = ".", editable = true }
+{{ cookiecutter.project_slug }} = { path = ".", editable = true }
 
 [tool.pixi.environments]
 default = { solve-group = "default" }
