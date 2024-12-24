@@ -15,12 +15,15 @@ classifiers = [
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development :: Build Tools",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = ["cookiecutter"]
 
 [[project.authors]]
 name = "Tobias Raabe"
 email = "raabe@posteo.de"
+
+[tool.uv]
+dev-dependencies = ["tox-uv>=1.7.0"]
 
 [project.optional-dependencies]
 docs = [
@@ -36,6 +39,7 @@ docs = [
     "sphinxext-opengraph",
 ]
 test = ["pytest", "pytest-cookies", "pytest-cov"]
+typing = ["mypy"]
 
 [project.readme]
 file = "README.md"
@@ -50,13 +54,6 @@ Changelog = "https://cookiecutter-pytask-project.readthedocs.io/en/latest/change
 Documentation = "https://cookiecutter-pytask-project.readthedocs.io/en/latest"
 Github = "https://github.com/pytask-dev/cookiecutter-pytask-project"
 Tracker = "https://github.com/pytask-dev/cookiecutter-pytask-project/issues"
-
-[tool.rye]
-managed = true
-virtual = true
-dev-dependencies = [
-    "tox-uv>=1.8.2",
-]
 
 [tool.mypy]
 files = ["hooks", "tests"]
@@ -75,7 +72,7 @@ disallow_untyped_defs = false
 ignore_errors = true
 
 [tool.ruff]
-target-version = "py38"
+target-version = "py39"
 fix = true
 unsafe-fixes = true
 

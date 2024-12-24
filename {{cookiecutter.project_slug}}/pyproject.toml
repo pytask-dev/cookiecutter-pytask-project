@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 name = "{{ cookiecutter.project_slug }}"
 version = "0.1.0"
 description = "{{ cookiecutter.project_description }}"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 classifiers = [
   "Intended Audience :: Science/Research",
   "License :: OSI Approved :: {{ cookiecutter.open_source_license }} License",
@@ -16,7 +16,6 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
 ]
-dependencies = ["pytask"]
 
 [project.readme]
 file = "README.md"
@@ -29,27 +28,66 @@ text = "{{ cookiecutter.open_source_license }}"
 name = "{{ cookiecutter.author }}"
 email = "{{ cookiecutter.email }}"
 
-[project.optional-dependencies]
-docs = [
-  "furo",
-  "ipython",
-  "myst-parser",
-  "nbsphinx",
-  "sphinx",
-  "sphinx-copybutton",
-  "sphinx-design>=0.3",
-  "sphinx-toolbox",
-  "sphinxext-opengraph",
-]
-test = ["pytest", "pytest-cov", "pytest-xdist"]
-
 [project.urls]
 Changelog = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 Documentation = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 Github = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 Tracker = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues"
 
-{% if cookiecutter.add_mypy == "yes" %}[tool.mypy]
+[tool.pixi.project]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+
+[tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+pytask = ">=0.5.0"
+
+[tool.pixi.pypi-dependencies]
+"{{ cookiecutter.project_slug }}" = { path = ".", editable = true }
+
+[tool.pixi.feature.docs.tasks]
+docs = "sphinx-build -b html docs/source docs/build"
+
+[tool.pixi.feature.docs.dependencies]
+furo = "*"
+ipython = "*"
+myst-parser = "*"
+nbsphinx = "*"
+sphinx = "*"
+sphinx-copybutton = "*"
+sphinx-design = ">=0.3"
+sphinx-toolbox = "*"
+sphinxext-opengraph = "*"
+
+[tool.pixi.feature.test.tasks]
+test = "pytest --cov src --cov tests"
+
+[tool.pixi.feature.test.dependencies]
+pytest = "*"
+pytest-cov = "*"
+pytest-xdist = "*"
+
+[tool.pixi.feature.typing.tasks]
+typing = "mypy"
+
+[tool.pixi.feature.typing.dependencies]
+mypy = "*"
+
+[tool.pixi.feature.dev.tasks]
+nb = "jupyter lab --no-browser"
+
+[tool.pixi.feature.dev.dependencies]
+jupyterlab = "*"
+# pixi-pycharm = "*"
+
+[tool.pixi.environments]
+default = { features = ["dev", "docs", "test"], solve-group = "default" }
+docs = { features = ["docs"], solve-group = "default" }
+repro = { features = [], solve-group = "default" }
+typing = { features = ["typing"], solve-group = "default" }
+
+[tool.mypy]
 files = ["src", "tests"]
 check_untyped_defs = true
 disallow_any_generics = true
@@ -58,12 +96,13 @@ disallow_untyped_defs = true
 no_implicit_optional = true
 warn_redundant_casts = true
 warn_unused_ignores = true
+ignore_missing_imports = true
 
 [[tool.mypy.overrides]]
-ignore_errors = true
 module = "tests.*"
+ignore_errors = true
 disallow_untyped_defs = false
-{% endif %}
+
 [tool.pytask.ini_options]
 paths = ["src/{{ cookiecutter.project_slug }}"]
 
@@ -93,26 +132,3 @@ convention = "numpy"
 addopts = ["--doctest-modules"]
 testpaths = ["src", "tests"]
 norecursedirs = [".idea", ".tox"]
-
-[tool.pixi.project]
-channels = ["conda-forge"]
-platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
-
-[tool.pixi.dependencies]
-pytask = ">=0.4.7,<0.5"
-
-[tool.pixi.pypi-dependencies]
-{{ cookiecutter.project_slug }} = { path = ".", editable = true }
-
-[tool.pixi.environments]
-default = { solve-group = "default" }
-docs = { features = ["docs"], solve-group = "default" }
-test = { features = ["test"], solve-group = "default" }
-
-[tool.pixi.tasks]
-
-[tool.pixi.feature.test.tasks]
-test = "pytest --cov src --cov tests"
-
-[tool.pixi.feature.docs.tasks]
-docs = "sphinx-build -b html docs/source docs/build"

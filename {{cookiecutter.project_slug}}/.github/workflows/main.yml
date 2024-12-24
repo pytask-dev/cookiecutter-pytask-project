@@ -15,6 +15,19 @@ on:
 
 jobs:
 
+  run-type-checking:
+
+    name: Run tests for type-checking
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.1
+        with:
+          pixi-version: v0.39.4
+          cache: true
+      - run: pixi run typing
+
   run-tests:
 
     name: Run tests for ${{ matrix.os }} on ${{ matrix.python-version }}
@@ -28,9 +41,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: prefix-dev/setup-pixi@v0.7.0
+      - uses: prefix-dev/setup-pixi@v0.8.1
         with:
-          pixi-version: v0.22.0
+          pixi-version: v0.39.4
           cache: true
 
       - name: Run tests and doctests.
