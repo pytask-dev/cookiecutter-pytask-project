@@ -15,6 +15,21 @@ on:
 
 jobs:
 
+  run-type-checking:
+
+    name: Run tests for type-checking
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+          allow-prereleases: true
+          cache: pip
+      - run: pip install tox-uv
+      - run: tox -e typing
+
   run-tests:
 
     name: Run tests for ${{ matrix.os }} on ${{ matrix.python-version }}
@@ -24,7 +39,7 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
 
     steps:
       - uses: actions/checkout@v4
@@ -35,7 +50,7 @@ jobs:
           allow-prereleases: true
       - uses: prefix-dev/setup-pixi@v0.8.1
         with:
-          pixi-version: v0.22.0
+          pixi-version: v0.34.3
           run-install: false
 
       - run: pip install tox-uv

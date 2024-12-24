@@ -1,6 +1,9 @@
+ci:
+    skip: [typing]
+
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
     -   id: check-added-large-files
         args: ['--maxkb=25']
@@ -24,55 +27,44 @@ repos:
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
     -   id: text-unicode-replacement-char
--   repo: https://github.com/aio-libs/sort-all
-    rev: v1.2.0
-    hooks:
-    -   id: sort-all
 -   repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.4.4
+    rev: v0.8.4
     hooks:
       - id: ruff
       - id: ruff-format
-{% if cookiecutter.python_version in ["3.10", "3.11", "3.12"] %}-   repo: https://github.com/dosisod/refurb
-    rev: v2.0.0
-    hooks:
-    -   id: refurb
-{% endif %}
 -   repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.17
+    rev: 0.7.21
     hooks:
     -   id: mdformat
         additional_dependencies: [
             mdformat-gfm,
-            mdformat-black,
+            mdformat-ruff,
         ]
         args: [--wrap, "88"]
         files: (README\.md)
 -   repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.17
+    rev: 0.7.21
     hooks:
     -   id: mdformat
         additional_dependencies: [
             mdformat-myst,
-            mdformat-black,
+            mdformat-ruff,
         ]
         args: [--wrap, "88"]
         files: (docs/.)
-{% if cookiecutter.add_mypy == "yes" %}-   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v1.10.0'
+-   repo: https://github.com/crate-ci/typos
+    rev: v1.28.4
     hooks:
-    -   id: mypy
-        args: [
-            --no-strict-optional,
-            --ignore-missing-imports,
-        ]
-        pass_filenames: false
-{% endif %}-   repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
-    hooks:
-    -   id: codespell
+      - id: typos
 -   repo: meta
     hooks:
     -   id: check-hooks-apply
     -   id: check-useless-excludes
     # -   id: identity  # Prints all files passed to pre-commits. Debugging.
+-   repo: local
+    hooks:
+    -   id: typing
+        name: typing
+        language: system
+        entry: pixi run typing
+        pass_filenames: false

@@ -15,7 +15,6 @@ repos:
     -   id: check-yaml
         exclude:  |
             (?x)^(
-                {{cookiecutter.project_slug}}/environment.yml|
                 {{cookiecutter.project_slug}}/.pre-commit-config.yaml
             )$
     -   id: debug-statements
@@ -34,10 +33,6 @@ repos:
     -   id: python-no-log-warn
     -   id: python-use-type-annotations
     -   id: text-unicode-replacement-char
--   repo: https://github.com/aio-libs/sort-all
-    rev: v1.3.0
-    hooks:
-    -   id: sort-all
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.4
     hooks:
@@ -46,18 +41,13 @@ repos:
         pass_filenames: false
       - id: ruff-format
         args: [--config, pyproject.toml]
--   repo: https://github.com/dosisod/refurb
-    rev: v2.0.0
-    hooks:
-    -   id: refurb
-        exclude: ({{cookiecutter.project_slug}})
 -   repo: https://github.com/executablebooks/mdformat
     rev: 0.7.21
     hooks:
     -   id: mdformat
         additional_dependencies: [
             mdformat-gfm,
-            mdformat-black,
+            mdformat-ruff,
         ]
         args: [--wrap, "88"]
         files: (README\.md)
@@ -71,22 +61,23 @@ repos:
     -   id: mdformat
         additional_dependencies: [
             mdformat-myst,
-            mdformat-black,
+            mdformat-ruff,
         ]
         args: [--wrap, "88"]
         files: (docs/.)
--   repo: https://github.com/codespell-project/codespell
-    rev: v2.3.0
+-   repo: https://github.com/crate-ci/typos
+    rev: v1.28.4
     hooks:
-    -   id: codespell
-        additional_dependencies: [tomli]
--   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v1.14.0'
-    hooks:
-    -   id: mypy
-        pass_filenames: false
+      - id: typos
 -   repo: meta
     hooks:
     -   id: check-hooks-apply
     -   id: check-useless-excludes
     # -   id: identity  # Prints all files passed to pre-commits. Debugging.
+-   repo: local
+    hooks:
+    -   id: typing
+        name: typing
+        language: system
+        entry: uv run tox -e typing
+        pass_filenames: false
