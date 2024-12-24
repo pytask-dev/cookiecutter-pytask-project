@@ -5,7 +5,8 @@ them in reverse chronological order.
 
 ## 1.8.0 - 2024-12-24
 
-- {pull}`52` updates the template in many different ways. Better pre-commit hooks, better integration with pixi, mypy is not optional anymore, etc..
+- {pull}`52` updates the template in many different ways. Better pre-commit hooks,
+  better integration with pixi, mypy is not optional anymore, etc..
 
 ## 1.7.0 - 2024-05-03
 
