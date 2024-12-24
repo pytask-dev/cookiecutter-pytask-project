@@ -1,3 +1,6 @@
+ci:
+    skip: [typing]
+
 exclude: |
     (?x)^(
         {{cookiecutter.project_slug}}/tests/test_import.py
