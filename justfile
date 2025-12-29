@@ -16,7 +16,7 @@ typing:
 
 # Run linting and formatting
 lint:
-    uvx --with pre-commit-uv pre-commit run -a
+    uvx prek run -a
 
 # Run all checks (format, lint, typing, test)
 check: lint typing test

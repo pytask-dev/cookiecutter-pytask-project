@@ -1,0 +1,22 @@
+# Install all dependencies
+install:
+    pixi install
+
+# Run tests
+test:
+    pixi run test
+
+# Run type checking
+typing:
+    pixi run typing
+
+# Run linting
+lint:
+    uvx prek run -a
+
+# Run all checks (format, lint, typing, test)
+check: lint typing test
+
+# Build documentation
+docs:
+    pixi run docs
