@@ -12,7 +12,7 @@ test-cov:
 
 # Run type checking
 typing:
-    uv run --extra typing --extra test ty check hooks/ tests/
+    uv run --extra typing --extra test mypy
 
 # Run linting and formatting
 lint:
