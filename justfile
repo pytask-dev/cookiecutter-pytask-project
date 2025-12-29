@@ -16,7 +16,7 @@ typing:
 
 # Run linting and formatting
 lint:
-    uvx prek run -a
+    uvx prek run -a -c .pre-commit-config.yaml
 
 # Run all checks (format, lint, typing, test)
 check: lint typing test
