@@ -5,7 +5,7 @@ them in reverse chronological order.
 
 ## Unreleased
 
-- {pull}`XX` updates the pre-commit hooks.
+- {pull}`72` updates the pre-commit hooks.
 
 ## 1.8.0 - 2024-12-24
 
