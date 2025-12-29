@@ -20,10 +20,10 @@ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/main)
 ## Installation
 
 To work with the project, you should have [pixi](https://pixi.sh/latest/) installed.
-For the task runner, you can install just with
+For linting, install prek with
 
 ```console
-uv tool install rust-just
+pixi global install prek
 ```
 
 ## Usage
