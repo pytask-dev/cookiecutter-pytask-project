@@ -5,7 +5,7 @@ them in reverse chronological order.
 
 ## Unreleased
 
-- {pull}`XX` drops support for Python 3.9 and adds support for Python 3.14.
+- {pull}`70` drops support for Python 3.9 and adds support for Python 3.14.
 
 ## 1.8.0 - 2024-12-24
 
