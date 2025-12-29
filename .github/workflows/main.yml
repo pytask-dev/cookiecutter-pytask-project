@@ -23,13 +23,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v7
         with:
-          python-version-file: .python-version
-          allow-prereleases: true
-          cache: pip
-      - run: pip install tox-uv
-      - run: tox -e typing
+          enable-cache: true
+      - name: Install just
+        uses: extractions/setup-just@v3
+      - run: just typing
 
   run-tests:
 
@@ -40,25 +39,23 @@ jobs:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
+        python-version: ['3.10', '3.11', '3.12', '3.13', '3.14']
 
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v5
+      - uses: astral-sh/setup-uv@v7
         with:
+          enable-cache: true
           python-version: ${{ matrix.python-version }}
-          cache: pip
-          allow-prereleases: true
       - uses: prefix-dev/setup-pixi@v0.9.3
         with:
           pixi-version: v0.39.4
           run-install: false
-
-      - run: pip install tox-uv
-
+      - name: Install just
+        uses: extractions/setup-just@v3
       - name: Run tests.
         shell: bash -l {0}
-        run: tox -e test -- --cov=./ --cov-report=xml
+        run: just test-cov
 
       - name: Upload coverage reports of tests.
         uses: codecov/codecov-action@v5

@@ -15,15 +15,12 @@ classifiers = [
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development :: Build Tools",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = ["cookiecutter"]
 
 [[project.authors]]
 name = "Tobias Raabe"
 email = "raabe@posteo.de"
-
-[tool.uv]
-dev-dependencies = ["tox-uv>=1.7.0"]
 
 [project.optional-dependencies]
 docs = [
@@ -62,7 +59,6 @@ unused-ignore-comment = "error"
 error-on-warning = true
 
 [tool.ruff]
-target-version = "py39"
 fix = true
 unsafe-fixes = true
 
@@ -98,4 +94,4 @@ markers = [
     "integration: Flag for integration tests which may comprise of multiple unit tests.",
     "end_to_end: Flag for tests that cover the whole program.",
 ]
-norecursedirs = [".idea", ".tox"]
+norecursedirs = [".idea"]
