@@ -8,7 +8,7 @@ exclude: |
 
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
     -   id: check-added-large-files
         args: ['--maxkb=25']
@@ -37,7 +37,7 @@ repos:
     -   id: python-use-type-annotations
     -   id: text-unicode-replacement-char
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.12.4
+    rev: v0.14.10
     hooks:
       - id: ruff
         args: [--config, pyproject.toml, hooks, tests]
@@ -45,7 +45,7 @@ repos:
       - id: ruff-format
         args: [--config, pyproject.toml]
 -   repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.22
+    rev: 1.0.0
     hooks:
     -   id: mdformat
         additional_dependencies: [
@@ -59,7 +59,7 @@ repos:
               {{cookiecutter.project_slug}}/README.md
           )$
 -   repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.22
+    rev: 1.0.0
     hooks:
     -   id: mdformat
         additional_dependencies: [
@@ -69,7 +69,7 @@ repos:
         args: [--wrap, "88"]
         files: (docs/.)
 -   repo: https://github.com/crate-ci/typos
-    rev: v1.34.0
+    rev: typos-dict-v0.13.13
     hooks:
       - id: typos
 -   repo: meta
