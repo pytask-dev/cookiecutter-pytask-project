@@ -5,7 +5,7 @@ them in reverse chronological order.
 
 ## Unreleased
 
-- {pull}`XX` switches typing from mypy to ty.
+- {pull}`71` switches typing from mypy to ty.
 
 ## 1.8.0 - 2024-12-24
 
