@@ -69,9 +69,9 @@ repos:
         args: [--wrap, "88"]
         files: (docs/.)
 -   repo: https://github.com/crate-ci/typos
-    rev: typos-dict-v0.13.13
+    rev: v1.40.1
     hooks:
-      - id: typos
+    -   id: typos
 -   repo: meta
     hooks:
     -   id: check-hooks-apply

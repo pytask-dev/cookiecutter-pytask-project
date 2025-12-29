@@ -3,6 +3,10 @@
 This is a record of all past cookiecutter-pytask-project releases and what went into
 them in reverse chronological order.
 
+## Unreleased
+
+- {pull}`XX` updates the pre-commit hooks.
+
 ## 1.8.0 - 2024-12-24
 
 - {pull}`52` updates the template in many different ways. Better pre-commit hooks,
