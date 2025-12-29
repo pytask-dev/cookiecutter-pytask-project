@@ -15,7 +15,7 @@ classifiers = [
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development :: Build Tools",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 dependencies = ["cookiecutter"]
 
 [[project.authors]]
@@ -72,7 +72,6 @@ disallow_untyped_defs = false
 ignore_errors = true
 
 [tool.ruff]
-target-version = "py39"
 fix = true
 unsafe-fixes = true
 

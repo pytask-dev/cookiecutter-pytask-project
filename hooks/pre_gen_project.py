@@ -4,8 +4,8 @@ import re
 
 MODULE_REGEX = r"^[_a-zA-Z][_a-zA-Z0-9]*$"
 ENVIRON_REGEX = r"^[-_a-zA-Z0-9]*$"
-PYTHONVERSION_REGEX = r"^(3\.(1[0-9]|[8-9])(\.[0-9]{1,2})?)$"
-PYTHONVERSION_MIN = "3.9"
+PYTHONVERSION_REGEX = r"^(3\.(1[0-4])(\.[0-9]{1,2})?)$"
+PYTHONVERSION_MIN = "3.10"
 
 EXCEPTION_MSG_MODULE_NAME = """
 ERROR: The project slug ({module_name}) is not a valid Python module name.

@@ -3,6 +3,10 @@
 This is a record of all past cookiecutter-pytask-project releases and what went into
 them in reverse chronological order.
 
+## Unreleased
+
+- {pull}`70` drops support for Python 3.9 and adds support for Python 3.14.
+
 ## 1.8.0 - 2024-12-24
 
 - {pull}`52` updates the template in many different ways. Better pre-commit hooks,
