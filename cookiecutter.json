@@ -6,7 +6,7 @@
   "project_description": "A project for ...",
   "github_username": "{{ cookiecutter.author.lower().replace(' ', '') }}",
   "github_email": "{{ cookiecutter.email }}",
-  "python_version": "3.10",
+  "python_version": "3.12",
   "add_tox": ["yes", "no"],
   "add_github_actions": ["yes", "no"],
   "add_readthedocs": ["yes", "no"],
