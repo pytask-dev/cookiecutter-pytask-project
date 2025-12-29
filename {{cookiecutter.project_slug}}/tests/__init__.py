@@ -1,1 +1,1 @@
-"""Is module is necessary to configure mypy's behavior for the tests."""
+"""Mark tests as a package for type checking."""

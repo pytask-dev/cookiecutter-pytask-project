@@ -39,7 +39,7 @@ docs = [
     "sphinxext-opengraph",
 ]
 test = ["pytest", "pytest-cookies", "pytest-cov"]
-typing = ["mypy"]
+typing = ["ty>=0.0.7"]
 
 [project.readme]
 file = "README.md"
@@ -55,21 +55,11 @@ Documentation = "https://cookiecutter-pytask-project.readthedocs.io/en/latest"
 Github = "https://github.com/pytask-dev/cookiecutter-pytask-project"
 Tracker = "https://github.com/pytask-dev/cookiecutter-pytask-project/issues"
 
-[tool.mypy]
-files = ["hooks", "tests"]
-exclude = "{{cookiecutter.project_slug}}"
-check_untyped_defs = true
-disallow_any_generics = true
-disallow_incomplete_defs = true
-disallow_untyped_defs = true
-no_implicit_optional = true
-warn_redundant_casts = true
-warn_unused_ignores = true
+[tool.ty.rules]
+unused-ignore-comment = "error"
 
-[[tool.mypy.overrides]]
-module = "tests.*"
-disallow_untyped_defs = false
-ignore_errors = true
+[tool.ty.terminal]
+error-on-warning = true
 
 [tool.ruff]
 target-version = "py39"

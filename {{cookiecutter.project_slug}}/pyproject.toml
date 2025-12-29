@@ -69,10 +69,10 @@ pytest-cov = "*"
 pytest-xdist = "*"
 
 [tool.pixi.feature.typing.tasks]
-typing = "mypy"
+typing = "ty check src/ tests/"
 
 [tool.pixi.feature.typing.dependencies]
-mypy = "*"
+ty = ">=0.0.7"
 
 [tool.pixi.feature.dev.tasks]
 nb = "jupyter lab --no-browser"
@@ -87,21 +87,11 @@ docs = { features = ["docs"], solve-group = "default" }
 repro = { features = [], solve-group = "default" }
 typing = { features = ["typing"], solve-group = "default" }
 
-[tool.mypy]
-files = ["src", "tests"]
-check_untyped_defs = true
-disallow_any_generics = true
-disallow_incomplete_defs = true
-disallow_untyped_defs = true
-no_implicit_optional = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-ignore_missing_imports = true
+[tool.ty.rules]
+unused-ignore-comment = "error"
 
-[[tool.mypy.overrides]]
-module = "tests.*"
-ignore_errors = true
-disallow_untyped_defs = false
+[tool.ty.terminal]
+error-on-warning = true
 
 [tool.pytask.ini_options]
 paths = ["src/{{ cookiecutter.project_slug }}"]
