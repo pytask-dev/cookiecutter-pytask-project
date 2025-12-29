@@ -82,5 +82,5 @@ repos:
     -   id: typing
         name: typing
         language: system
-        entry: uv run tox -e typing
+        entry: just typing
         pass_filenames: false

@@ -20,6 +20,11 @@ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/main)
 ## Installation
 
 To work with the project, you should have [pixi](https://pixi.sh/latest/) installed.
+For linting, install prek with
+
+```console
+pixi global install prek
+```
 
 ## Usage
 
