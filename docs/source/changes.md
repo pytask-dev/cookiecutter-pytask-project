@@ -5,7 +5,7 @@ them in reverse chronological order.
 
 ## Unreleased
 
-- {pull}`XX` removes tox in favor of uv + just.
+- {pull}`73` removes tox in favor of uv + just.
 
 ## 1.8.0 - 2024-12-24
 
