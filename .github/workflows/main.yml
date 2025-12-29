@@ -47,6 +47,10 @@ jobs:
         with:
           enable-cache: true
           python-version: ${{ matrix.python-version }}
+      - uses: prefix-dev/setup-pixi@v0.9.3
+        with:
+          pixi-version: v0.39.4
+          run-install: false
       - name: Install just
         uses: extractions/setup-just@v3
       - name: Run tests.
