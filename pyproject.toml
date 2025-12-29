@@ -22,9 +22,6 @@ dependencies = ["cookiecutter"]
 name = "Tobias Raabe"
 email = "raabe@posteo.de"
 
-[tool.uv]
-dev-dependencies = ["tox-uv>=1.7.0"]
-
 [project.optional-dependencies]
 docs = [
     "furo",
@@ -108,4 +105,4 @@ markers = [
     "integration: Flag for integration tests which may comprise of multiple unit tests.",
     "end_to_end: Flag for tests that cover the whole program.",
 ]
-norecursedirs = [".idea", ".tox"]
+norecursedirs = [".idea"]
