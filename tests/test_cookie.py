@@ -90,9 +90,6 @@ def test_check_pixi_and_run_all_checks(cookies):
         check=True,
     )
 
-    # Install project dependencies.
-    subprocess.run(("pixi", "install"), cwd=result.project_path, check=True)
-
     # Install prek.
     subprocess.run(
         ("pixi", "global", "install", "prek"),
