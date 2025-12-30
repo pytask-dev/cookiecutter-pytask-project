@@ -4,7 +4,7 @@
 # when the project is installed with ``pip install -e .``. Do not put it into version
 # control!
 try:
-    from ._version import version as __version__  # ty: ignore[unresolved-import]
+    from ._version import version as __version__  # ty: ignore[unresolved-import, unused-ignore-comment]
 except ImportError:
     __version__ = "unknown"
 
