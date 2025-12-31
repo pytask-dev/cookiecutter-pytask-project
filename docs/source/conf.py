@@ -5,7 +5,10 @@ documentation: https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 """
 
+from importlib.metadata import PackageNotFoundError
 from importlib.metadata import version
+from pathlib import Path
+import tomllib
 
 
 # -- Project information -----------------------------------------------------
@@ -16,7 +19,12 @@ author = "Tobias Raabe"
 copyright = f"2021, {author}"  # noqa: A001
 
 # The version, including alpha/beta/rc tags, but not commit hash and datestamps
-release = version("cookiecutter-pytask-project")
+try:
+    release = version("cookiecutter-pytask-project")
+except PackageNotFoundError:
+    pyproject_path = Path(__file__).resolve().parents[2] / "pyproject.toml"
+    with pyproject_path.open("rb") as f:
+        release = tomllib.load(f)["project"]["version"]
 # The short X.Y version.
 version = ".".join(release.split(".")[:2])
 
@@ -28,6 +36,7 @@ version = ".".join(release.split(".")[:2])
 extensions = [
     "IPython.sphinxext.ipython_console_highlighting",
     "IPython.sphinxext.ipython_directive",
+    "sphinx.ext.doctest",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.extlinks",
