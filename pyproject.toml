@@ -18,11 +18,21 @@ classifiers = [
 requires-python = ">=3.10"
 dependencies = ["cookiecutter"]
 
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["cookiecutter.json", "hooks", "{{cookiecutter.project_slug}}"]
+
+[tool.hatch.build.targets.sdist]
+only-include = ["cookiecutter.json", "hooks", "{{cookiecutter.project_slug}}"]
+
 [[project.authors]]
 name = "Tobias Raabe"
 email = "raabe@posteo.de"
 
-[project.optional-dependencies]
+[dependency-groups]
 docs = [
     "furo",
     "ipython",
@@ -36,7 +46,7 @@ docs = [
     "sphinxext-opengraph",
 ]
 test = ["pytest", "pytest-cookies", "pytest-cov"]
-typing = ["ty>=0.0.7"]
+typing = ["ty>=0.0.8"]
 
 [project.readme]
 file = "README.md"

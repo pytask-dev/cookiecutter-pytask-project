@@ -62,15 +62,15 @@ A: This is called the src layout and the advantages are discussed in this
 Although the article discusses the src layout in terms of Python packages, it is also
 beneficial to structure a project the same way. Next to the reasons discussed there, it
 is possible to use a single Python environment for multiple projects without messing
-with your PYTHONPATH (via `pip install -e .` or `conda develop .`) each time and still
-import modules.
+with your PYTHONPATH (for example, via editable installs) each time and still import
+modules.
 
 Q: My project is a Python package, but it does not seem to have a version. Where is it?
 
 A: The cookiecutter uses [setuptools_scm](https://github.com/pypa/setuptools_scm/) to
-manage the version number. When you install your created project as a Python package
-with `pip install -e .`, setuptools_scm tries to infer the version number from the tags
-created on the repo.
+manage the version number. When you install your created project as a Python package in
+editable mode, setuptools_scm tries to infer the version number from the tags created on
+the repo.
 
 For example, if you have switched to a commit associated with the tag `v0.2.0`,
 setuptools_scm will create a `src/<package_slug>/_version.py` with a variable containing
