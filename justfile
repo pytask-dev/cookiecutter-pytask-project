@@ -23,5 +23,6 @@ check: lint typing test
 
 # Build docs and run doctests
 docs:
+    uv sync --group docs --group test
     uv run --group docs --group test sphinx-build -n -T -b html -d docs/build/doctrees docs/source docs/build/html
     uv run --group docs --group test sphinx-build -n -T -b doctest -d docs/build/doctrees docs/source docs/build/html
