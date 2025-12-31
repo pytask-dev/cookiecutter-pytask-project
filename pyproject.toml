@@ -36,7 +36,7 @@ docs = [
     "sphinxext-opengraph",
 ]
 test = ["pytest", "pytest-cookies", "pytest-cov"]
-typing = ["ty>=0.0.7"]
+typing = ["ty>=0.0.8"]
 
 [project.readme]
 file = "README.md"
