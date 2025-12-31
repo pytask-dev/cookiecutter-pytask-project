@@ -22,7 +22,7 @@ dependencies = ["cookiecutter"]
 name = "Tobias Raabe"
 email = "raabe@posteo.de"
 
-[project.optional-dependencies]
+[dependency-groups]
 docs = [
     "furo",
     "ipython",

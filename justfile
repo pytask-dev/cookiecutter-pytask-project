@@ -4,15 +4,15 @@ install:
 
 # Run tests
 test:
-    uv run --extra test pytest
+    uv run --group test pytest
 
 # Run tests with coverage
 test-cov:
-    uv run --extra test pytest --cov=./ --cov-report=xml
+    uv run --group test pytest --cov=./ --cov-report=xml
 
 # Run type checking
 typing:
-    uv run --extra typing --extra test ty check hooks/ tests/
+    uv run --group typing --group test --isolated ty check hooks/ tests/
 
 # Run linting and formatting
 lint:
@@ -23,5 +23,5 @@ check: lint typing test
 
 # Build docs and run doctests
 docs:
-    uv run --extra docs --extra test sphinx-build -n -T -b html -d docs/build/doctrees docs/source docs/build/html
-    uv run --extra docs --extra test sphinx-build -n -T -b doctest -d docs/build/doctrees docs/source docs/build/html
+    uv run --group docs --group test sphinx-build -n -T -b html -d docs/build/doctrees docs/source docs/build/html
+    uv run --group docs --group test sphinx-build -n -T -b doctest -d docs/build/doctrees docs/source docs/build/html
