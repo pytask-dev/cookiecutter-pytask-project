@@ -8,6 +8,15 @@ from contextlib import suppress
 from pathlib import Path
 
 
+def find_executable(name: str) -> str:
+    """Find an executable on PATH."""
+    executable = shutil.which(name)
+    if executable is None:  # pragma: no cover
+        msg = f"Could not find {name!r} on PATH."
+        raise RuntimeError(msg)
+    return executable
+
+
 def remove_file(*filepath: str | Path) -> None:
     """Remove a file."""
     with suppress(FileNotFoundError):
@@ -24,6 +33,7 @@ def remove_directory(*filepath: str | Path) -> None:
 def main() -> None:
     """Apply post generation hooks."""
     project_path = Path.cwd()
+    git = find_executable("git")
 
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
         remove_file(project_path, "LICENSE")
@@ -35,7 +45,7 @@ def main() -> None:
         remove_file(project_path, ".readthedocs.yaml")
 
     subprocess.run(
-        ("git", "init", "--initial-branch", "main"),
+        (git, "init", "--initial-branch", "main"),
         check=True,
         capture_output=True,
     )
@@ -43,16 +53,16 @@ def main() -> None:
     if "{{ cookiecutter.make_initial_commit }}" == "yes":
         # Create an initial commit on the main branch and restore global default name.
         subprocess.run(
-            ("git", "config", "user.name", "'{{ cookiecutter.github_username }}'"),
+            (git, "config", "user.name", "'{{ cookiecutter.github_username }}'"),
             check=True,
         )
         subprocess.run(
-            ("git", "config", "user.email", "'{{ cookiecutter.github_email }}'"),
+            (git, "config", "user.email", "'{{ cookiecutter.github_email }}'"),
             check=True,
         )
-        subprocess.run(("git", "add", "."), check=True)
+        subprocess.run((git, "add", "."), check=True)
         subprocess.run(
-            ("git", "commit", "-m", "'Initial commit.'"),
+            (git, "commit", "-m", "'Initial commit.'"),
             check=True,
             capture_output=True,
         )

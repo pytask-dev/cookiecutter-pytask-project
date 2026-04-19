@@ -1,10 +1,19 @@
 import os
+import shutil
 import subprocess
 import sys
 
 import pytest
 
 _PYTHON_VERSION = ".".join(map(str, sys.version_info[:2]))
+
+
+def _find_executable(name: str) -> str:
+    executable = shutil.which(name)
+    if executable is None:  # pragma: no cover
+        msg = f"Could not find {name!r} on PATH."
+        raise RuntimeError(msg)
+    return executable
 
 
 def test_bake_project(cookies):
@@ -70,6 +79,9 @@ def test_remove_license(cookies):
 @pytest.mark.skipif(os.environ.get("CI") is None, reason="Run only in CI.")
 def test_check_pixi_and_run_all_checks(cookies):
     """Test pixi and pre-commit passes."""
+    git = _find_executable("git")
+    pixi = _find_executable("pixi")
+
     result = cookies.bake(
         extra_context={"make_initial_commit": "yes", "python_version": _PYTHON_VERSION},
     )
@@ -80,31 +92,31 @@ def test_check_pixi_and_run_all_checks(cookies):
     # Switch branch before pre-commit because otherwise failure because on main
     # branch.
     subprocess.run(
-        ("git", "checkout", "-b", "test"),
+        (git, "checkout", "-b", "test"),
         cwd=result.project_path,
         check=True,
     )
 
     # Install prek.
     subprocess.run(
-        ("pixi", "global", "install", "prek"),
+        (pixi, "global", "install", "prek"),
         cwd=result.project_path,
         check=True,
     )
     # Check linting, but not on the first try since formatters fix stuff.
     subprocess.run(
-        ("pixi", "run", "prek", "run", "--all-files"),
+        (pixi, "run", "prek", "run", "--all-files"),
         cwd=result.project_path,
         check=False,
     )
     subprocess.run(
-        ("pixi", "run", "prek", "run", "--all-files"),
+        (pixi, "run", "prek", "run", "--all-files"),
         cwd=result.project_path,
         check=True,
     )
 
     # Run tests.
-    subprocess.run(("pixi", "run", "test"), cwd=result.project_path, check=True)
+    subprocess.run((pixi, "run", "test"), cwd=result.project_path, check=True)
 
     # Test building documentation
-    subprocess.run(("pixi", "run", "docs"), cwd=result.project_path, check=True)
+    subprocess.run((pixi, "run", "docs"), cwd=result.project_path, check=True)
