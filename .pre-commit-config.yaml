@@ -1,4 +1,5 @@
 ci:
+    autoupdate_schedule: monthly
     skip: [typing]
 
 exclude: |
