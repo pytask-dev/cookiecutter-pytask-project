@@ -5,6 +5,7 @@ them in reverse chronological order.
 
 ## Unreleased
 
+- Require Python 3.11 or newer for the template and generated projects.
 - {pull}`70` drops support for Python 3.9 and adds support for Python 3.14.
 - {pull}`71` switches typing from mypy to ty.
 - {pull}`72` updates the pre-commit hooks.
