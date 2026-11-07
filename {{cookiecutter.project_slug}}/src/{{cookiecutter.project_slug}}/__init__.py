@@ -3,7 +3,7 @@
 # Import the version from _version.py which is dynamically created by setuptools-scm
 # when the project is installed in editable mode. Do not put it into version control!
 try:
-    from ._version import version as __version__  # ty: ignore[unresolved-import]
+    from ._version import version as __version__  # ty: ignore[import-not-found]
 except ImportError:
     __version__ = "unknown"
 
